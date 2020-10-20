@@ -1,0 +1,34 @@
+<!--pages/publish/publish.wxml-->
+<!-- <view class="content">
+  <view class="publish_view">
+    <button class="publish_btn">发表</button>
+  </view>
+  <textarea placeholder="这一刻的想法..."class='text_publish' ></textarea>
+  <view class="list_img">
+  <view></view>
+  <view class="publish_img">+</view>
+  </view>
+  
+</view> -->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">发表</view></cu-custom>
+<view class='page'>
+<view class="publish_view">
+    <button class="publish_btn" bindtap="send" disabled="{{disabled}}">发表</button>
+  </view>
+ <textarea placeholder="这一刻的想法..."class='text_publish' bindinput="input" auto-height></textarea>
+ <!-- // 利用绝对定位 隐藏canvas -->
+<canvas canvas-id="photo_canvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-1300px;top:-1300px;"></canvas>
+ <view class="image_content">
+ <view class='image' wx:for="{{picPaths}}">
+  <image class="moment_img" src="{{item}}" bindtap='LookPhoto'  data-photUrl='{{picPaths}}' data-idx="{{index}}"></image>
+  <view class="del" bindtap="delImg" data-src="{{item}}" data-idx="{{index}}">
+    <image src="../../images/deltel.png" class="del_img"></image>
+  </view>
+ </view>
+ <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+  <image bindtap="chooseimage" class="moment_img" src='../../images/add.png'></image>
+  <!-- <view class="publish_img" bindtap="chooseimage">+</view> -->
+ </view>
+ </view>
+ <!-- <button bindtap="send" style='margin-right:5px;margin-left:5px'>发布</button> -->
+</view>

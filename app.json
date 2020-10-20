@@ -1,0 +1,108 @@
+{
+  "pages": [
+    "pages/motion/motion",
+    "pages/activityList/activityList",
+    "pages/index/index",
+    "pages/login/login",
+    "pages/logs/logs",
+    "pages/personal/personal",
+    "pages/publishBall/publishBall",
+    "pages/ballDetail/ballDetail",
+    "pages/personalInfo/personalInfo",
+    "pages/myTreatyBall/myTreatyBall",
+    "pages/aboutUs/aboutUs",
+    "pages/register/register",
+    "pages/editBallDetail/editBallDetail",
+    "pages/myBallDetail/myBallDetail",
+    "pages/map/map",
+    "pages/associationDetail/associationDetail",
+    "pages/activityDetail/activityDetail",
+    "pages/association/association",
+    "pages/kuckyDrawList/kuckyDrawList",
+    "pages/kuckyDrawDetail/kuckyDrawDetail",
+    "pages/publishkKuckyDraw/publishkKuckyDraw",
+    "pages/associationActivityList/associationActivityList",
+    "pages/editAssociationActivity/editAssociationActivity",
+    "pages/myAssociation/myAssociation",
+    "pages/createAssociation/createAssociation",
+    "pages/certification/certification",
+    "pages/myActivityList/myActivityList",
+    "pages/systemMessage/systemMessage",
+    "pages/CircleFriends/CircleFriends",
+    "pages/publish/publish",
+    "pages/news/news",
+    "pages/editAssociation/editAssociation",
+    "pages/createAssociationActivity/createAssociationActivity",
+    "pages/myActivityDetail/myActivityDetail",
+    "pages/allAssociationMember/allAssociationMember",
+    "pages/allAssociationActivity/allAssociationActivity",
+    "pages/nearClub/nearClub",
+    "pages/chat/chat",
+    "pages/navbar/navbar",
+    "pages/myDraw/myDraw",
+    "pages/scoreDetail/scoreDetail",
+    "pages/playDetail/playDetail",
+    "pages/maxgame/maxgame",
+    "pages/maxrod/maxrod",
+    "pages/gameDetail/gameDetail",
+    "components/select/select"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarTitleText": "台球吧",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/pages/navbar/navbar",
+    "cu-select": "/components/select/select"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#666666",
+    "selectedColor": "#7966FE",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/select1.png",
+        "iconPath": "images/select2.png",
+        "pagePath": "pages/activityList/activityList",
+        "text": "活动"
+      },
+      {
+        "selectedIconPath": "images/select4.png",
+        "iconPath": "images/select3.png",
+        "pagePath": "pages/association/association",
+        "text": "俱乐部"
+      },
+      {
+        "selectedIconPath": "images/icon04.png",
+        "iconPath": "images/icon4.png",
+        "pagePath": "pages/motion/motion",
+        "text": "运动"
+      },
+      {
+        "selectedIconPath": "images/icon1.png",
+        "iconPath": "images/select5.png",
+        "pagePath": "pages/index/index",
+        "text": "约球"
+      },
+      {
+        "selectedIconPath": "images/icon3-1.png",
+        "iconPath": "images/icon3.png",
+        "pagePath": "pages/personal/personal",
+        "text": "我的"
+      }
+    ]
+  },
+  "navigateToMiniProgramAppIdList": [
+    "wx137a905e33b2c37a"
+  ],
+  "sitemapLocation": "sitemap.json"
+}

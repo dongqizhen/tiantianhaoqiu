@@ -1,0 +1,19 @@
+<!--pages/phone-login/phone-login.wxml-->
+<view>
+<view class='contet_center'>
+  <image src='../../images/register_logo.png' class='logo'></image>
+</view> 
+  <view class="phonenumbermain">
+    <view class="phonemain">
+      <view class='phone_text'>手机号</view>
+      <input type="number" bindinput='getPhoneValue' value='{{phone}}' placeholder="请输入手机号码" />
+     
+    </view>
+    <view class="phonemain codemain">
+      <input type="number" bindinput='getCodeValue' value='{{code}}' placeholder="请输入验证码" />
+       <button class='buttoncode' bindtap='getVerificationCode' disabled='{{disabled}}' >{{codename}}</button>
+    </view>
+  </view>
+  <button class="sureLogin" bindtap="login">下一步</button>
+  <button class="sureLogin" bindtap="confirm_btn">取消</button>
+</view>

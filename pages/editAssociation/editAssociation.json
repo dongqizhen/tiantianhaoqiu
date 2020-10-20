@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "编辑俱乐部",
+  "usingComponents": {
+    "singer": "/components/singer/singer"
+  }
+}

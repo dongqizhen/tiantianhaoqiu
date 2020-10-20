@@ -1,0 +1,266 @@
+<!--index.wxml-->
+<!-- <view class="container"> -->
+<view>
+<view>
+  <!-- <view class="swiper swiper-box">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{imgUrls}}">
+    <swiper-item>
+    <image src="https://tq.wooloo.top/{{item.image}}" class="slide-image" wx:if='{{item.src == null}}'/>
+    </swiper-item>
+  </block>
+</swiper>
+</view> -->
+<cu-custom bgColor="bg-gradual-blue"><view slot="content">约球</view></cu-custom>
+<view class='content_index'>
+
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+      <view class='date_num'>{{date}}</view>
+      <view class='date_text'>今天</view>
+   </view> 
+    <!--{{date2}}  -->
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+      <view class='date_num'>明天</view>
+      <view class='date_text'>/ 后天</view>
+    </view>  
+    <!-- <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">
+      <view class='date_num'>{{date3}}</view>
+      <view class='date_text'>后天</view>
+    </view>   -->
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3" bindtap="swichNav" data-current="3">
+      <view class='date_num'><image src='{{history}}' style='width:32rpx;height:31rpx;vertical-align:middle'></image></view>
+      <view class='date_text'>历史约球</view>
+    </view> 
+    <view class="swiper-tab-list" data-current="2" bindtap="publishBall">
+      <view class='date_num'><image src='../../images/icon0.png' style='width:35rpx;height:35rpx;vertical-align:middle'></image></view>
+      <view class='date_text'>发布约球</view>
+    </view> 
+    <view class="swiper-tab-list" data-current="3"  bindtap='toMap'>
+      <view class='date_num'><image src='../../images/fujin.png' style='width:31rpx;height:34rpx;vertical-align:middle'></image></view>
+      <view class='date_text'>附近球友</view>
+    </view> 
+     
+</view>
+<view class='index_place' hidden='{{hidden}}'>
+<view style='flex:1' bindtap='chooseMapViewTap' style="width:75%;float:left;">
+  <image class='index_site' src="../../images/site.png"></image>
+        <view class='adress'>{{adress}}</view>
+</view>
+        
+        <view class='select_box'>
+<image class='select_img {{selectShow&&"select_img_rotate"}}' src='../../images/b2.png'  background-size="contain"></image> 
+    <picker class='select' bindchange='selectTap' value="{{i}}" range="{{selectData}}" data-id="{{i}}">
+        <view class='select_text'>
+        {{selectData[i]}}
+        </view>
+    </picker>
+    <view class='option_box' style='height:{{selectShow?(selectData.length>5?325:selectData.length*50):0}}rpx;'>
+        <text class='option' wx:for='{{selectData}}' wx:key='this' data-index='{{index}}' catchtap='optionTap'>{{item}}</text>
+    </view>
+</view>
+      </view>  
+</view>
+
+</view>
+<!-- <swiper current="{{currentTab}}" circular="{{circular}}" class="swiper-box" duration="300"  bindchange="bindChange" style="padding-bottom:50rpx;height:{{carslistheight-height1-height2-barHeight}}px;">   -->
+    <!-- 我是哈哈 -->  
+    <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;"> -->
+    <view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+     <scroll-view scroll-y style='height:100%;white-space: nowrap;padding-bottom:30rpx;' overflow="{{hidden}}">
+      <view wx:if="{{list == ''}}" class='no_list'>
+        暂无数据
+      </view>  
+      <view class='list' wx:for="{{list}}" wx:key data-id="{{item.id}}" catchtap='toDetail'> 
+        <view class='list_top'>
+        <text class='circle' wx:if="{{item.count >0}}"></text>
+        <view style="display:inline-block">
+         <image src='{{item.avatar}}' class='list_logo' style="display:block"></image>
+          <view class='user_type' wx:if="{{item.user_type == '助练'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">助练</view>
+          <view class='user_type' wx:elif="{{item.user_type == '非实体俱乐部'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">俱乐部</view>
+          <view class='user_type' wx:elif="{{item.user_type == '实体俱乐部'}}" style="display:block;margin-top:10rpx;background:rgba(121,102,254,1);border:1rpx solid rgba(121,102,254,1);color:#FFF;">俱乐部</view>
+          
+        </view>
+         
+          <view class='list_right'>
+            <view class='list_title'>{{item.title}}</view>
+             <view class='list_time'>{{item.starttime}}</view>
+            
+            <view>
+            <view class='ball_typeList'>
+            <block wx:for="{{item.tagslist}}">
+              <view class='list_ballType'>{{item.name}}</view>
+            </block>
+        
+            </view>
+             <view class='list_type' wx:if="{{item.fee_type == 1}}">AA</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 2}}">免费</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 3}}">抢台费</view>
+          <!-- <view class='user_type'>{{item.user_type}}</view> -->
+          <view class='list_distance' wx:if="{{item.distance.status == 1}}">{{item.distance.data}}km</view>
+           <view class='list_distance' wx:else>暂无距离</view>
+            </view>
+            
+           
+          </view>
+         
+        </view>
+        
+        <view class='list_center' style="white-space: pre-wrap;" wx:if="{{item.description!=''}}">{{item.description}}</view>
+       <view class='list_center' wx:else></view>
+       
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>   -->
+    <!-- 我是呵呵 -->  
+   <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+   <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+     <scroll-view scroll-y style='white-space: nowrap;height:100%;'overflow="{{hidden}}"> 
+
+     <view wx:if="{{list2 == ''}}" class='no_list'>
+        暂无数据
+      </view>  
+      <view class='list' wx:for="{{list2}}" wx:key data-id="{{item.id}}" catchtap='toDetail'> 
+        <view class='list_top'>
+        <text class='circle' wx:if="{{item.count >0}}"></text>
+          <view style="display:inline-block">
+         <image src='{{item.avatar}}' class='list_logo' style="display:block"></image>
+          <view class='user_type' wx:if="{{item.user_type == '助练'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">助练</view>
+          <view class='user_type' wx:elif="{{item.user_type == '非实体俱乐部'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">俱乐部</view>
+          <view class='user_type' wx:elif="{{item.user_type == '实体俱乐部'}}" style="display:block;margin-top:10rpx;background:rgba(121,102,254,1);border:1rpx solid rgba(121,102,254,1);color:#FFF;">俱乐部</view>
+          
+        </view>
+          <view class='list_right'>
+            <view class='list_title'>{{item.title}}</view>
+             <view class='list_time'>{{item.starttime}}</view>
+            
+            <view>
+            <view class='ball_typeList'>
+            <block wx:for="{{item.tagslist}}">
+              <view class='list_ballType'>{{item.name}}</view>
+            </block>
+        
+            </view>
+             <view class='list_type' wx:if="{{item.fee_type == 1}}">AA</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 2}}">免费</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 3}}">抢台费</view>
+           <!-- <view class='user_type'>{{item.user_type}}</view> -->
+          <view class='list_distance' wx:if="{{item.distance.status == 1}}">{{item.distance.data}}km</view>
+           <view class='list_distance' wx:else>暂无距离</view>
+            </view>
+            
+           
+          </view>
+         
+        </view>
+        
+        <view class='list_center' style="white-space: pre-wrap;" wx:if="{{item.description!=''}}">{{item.description}}</view>
+       <view class='list_center' wx:else></view>
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>  -->
+    <!-- 我是嘿嘿 -->  
+    <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+     <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
+     <scroll-view scroll-y style='white-space: nowrap;height:100%' overflow="{{hidden}}"> 
+    
+     <view wx:if="{{list3 == ''}}" class='no_list'>
+        暂无数据
+      </view>  
+      <view class='list' wx:for="{{list3}}" wx:key data-id="{{item.id}}" catchtap='toDetail'> 
+       <view class='list_top'>
+        <text class='circle' wx:if="{{item.count >0}}"></text>
+         <view style="display:inline-block">
+         <image src='{{item.avatar}}' class='list_logo' style="display:block"></image>
+          <view class='user_type' wx:if="{{item.user_type == '助练'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">助练</view>
+          <view class='user_type' wx:elif="{{item.user_type == '非实体俱乐部'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">俱乐部</view>
+          <view class='user_type' wx:elif="{{item.user_type == '实体俱乐部'}}" style="display:block;margin-top:10rpx;background:rgba(121,102,254,1);border:1rpx solid rgba(121,102,254,1);color:#FFF;">俱乐部</view>
+          
+        </view>
+          <view class='list_right'>
+            <view class='list_title'>{{item.title}}</view>
+             <view class='list_time'>{{item.starttime}}</view>
+            
+            <view>
+            <view class='ball_typeList'>
+            <block wx:for="{{item.tagslist}}">
+              <view class='list_ballType'>{{item.name}}</view>
+            </block>
+        
+            </view>
+             <view class='list_type' wx:if="{{item.fee_type == 1}}">AA</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 2}}">免费</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 3}}">抢台费</view>
+           <!-- <view class='user_type'>{{item.user_type}}</view> -->
+          <view class='list_distance' wx:if="{{item.distance.status == 1}}">{{item.distance.data}}km</view>
+           <view class='list_distance' wx:else>暂无距离</view>
+            </view>
+            
+           
+          </view>
+         
+        </view>
+        
+        <view class='list_center' style="white-space: pre-wrap;" wx:if="{{item.description!=''}}">{{item.description}}</view>
+       <view class='list_center' wx:else></view>
+      </view>
+      </scroll-view>
+      </view>
+
+      <!-- 历史活动 -->
+      <view class="{{currentTab == 3 ? 'show':'hidden'}}">
+     <scroll-view scroll-y style='white-space: nowrap;height:100%' overflow="{{hidden}}" > 
+     <!-- <scroll-view scroll-y style='max-height:{{carslistheight-barHeight}}px;white-space: nowrap;' bindscrolltolower="loadMore" overflow="{{hidden}}">  -->
+     <view wx:if="{{list4 == ''}}" class='no_list'>
+        暂无数据
+      </view>  
+      <view class='list' wx:for="{{list4}}" wx:key data-id="{{item.id}}" catchtap='toDetail'> 
+       <view class='list_top'>
+        <text class='circle' wx:if="{{item.count >0}}"></text>
+          <view style="display:inline-block">
+         <image src='{{item.avatar}}' class='list_logo' style="display:block"></image>
+          <view class='user_type' wx:if="{{item.user_type == '助练'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">助练</view>
+          <view class='user_type' wx:elif="{{item.user_type == '非实体俱乐部'}}" style="display:block;margin-top:10rpx;background:#fff;border:1rpx solid rgba(121,102,254,1);color:#7966FE">俱乐部</view>
+          <view class='user_type' wx:elif="{{item.user_type == '实体俱乐部'}}" style="display:block;margin-top:10rpx;background:rgba(121,102,254,1);border:1rpx solid rgba(121,102,254,1);color:#FFF;">俱乐部</view>
+          
+        </view>
+          <view class='list_right'>
+            <view class='list_title'>{{item.title}}</view>
+             <view class='list_time'>{{item.starttime}}</view>
+            
+            <view>
+            <view class='ball_typeList'>
+            <block wx:for="{{item.tagslist}}">
+              <view class='list_ballType'>{{item.name}}</view>
+            </block>
+        
+            </view>
+             <view class='list_type' wx:if="{{item.fee_type == 1}}">AA</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 2}}">免费</view>
+          <view class='list_type' wx:elif="{{item.fee_type == 3}}">抢台费</view>
+           <!-- <view class='user_type'>{{item.user_type}}</view> -->
+          <view class='list_distance' wx:if="{{item.distance.status == 1}}">{{item.distance.data}}km</view>
+           <view class='list_distance' wx:else>暂无距离</view>
+            </view>
+            
+           
+          </view>
+         
+        </view>
+        
+        <view class='list_center' style="white-space: pre-wrap;" wx:if="{{item.description!=''}}">{{item.description}}</view>
+       <view class='list_center' wx:else></view>
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>   -->
+     <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+      
+    <!-- </swiper-item>  -->
+<!-- </swiper>   -->
+<!-- </view> -->
+<!-- 发布约球 -->
+<!-- <button class="publishBall" bindtap="publishBall">发布约球</button> -->
+</view>

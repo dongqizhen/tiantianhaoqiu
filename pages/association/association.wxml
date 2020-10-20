@@ -1,0 +1,145 @@
+<!--pages/association/association.wxml-->
+<cu-custom bgColor="bg-gradual-blue"><view slot="content">俱乐部</view></cu-custom>
+<view>
+<!--  -->
+<view class="top">
+<image src="../../images/sousuo(2).png" class="search_img" bindtap="getSearch"></image>
+<input type="text" placeholder="搜索俱乐部" class="search" bindinput="search" confirm-type="search"  bindconfirm="wxSearchConfirm" value="{{name}}"></input>
+<!-- <view class="close_view"> -->
+<image src="../../images/colse.png" class="close" bindtap="close"></image>
+<!-- </view> -->
+
+</view>
+<!--  -->
+<!--index.wxml-->
+<!-- <view class="container"> -->
+<view>
+ 
+<view class='content_index'>
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav" data-type="1">
+     <view class="tab_text">声望最高</view>
+   </view> 
+    <!--{{date2}}  -->
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav" data-type="2">
+      <view class="tab_text">人数最多</view>
+    </view>  
+    
+    <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav" data-type="3">
+     <view class="tab_text">活动最多</view>
+    </view> 
+    <view class="swiper-tab-list {{currentTab==3 ? 'on' : ''}}" data-current="3"  style="position:relative;" bindtap="nearClub">
+    <image src="../../images/taiqiu(1).png" class="taiqiu_img"></image>
+     <view class="tab_text tav_text1">附近俱乐部</view>
+
+    </view> 
+  </view>
+</view>
+
+</view>
+<view style="margin-top:29rpx;padding-left:34rpx;padding-right:34rpx;">
+<view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+     <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='height:100%;white-space: nowrap;padding-bottom:30rpx;' overflow="{{hidden}}">
+     
+      <view class="listContent">
+      
+        <view class="list" wx:for="{{list}}" bindtap="toDetail" data-id="{{item.id}}" data-name="{{item.name}}" >
+          <image src="{{item.image}}" class="list_img" mode='aspectFill'></image>
+          <view class="list_content">
+            <view class="title">{{item.name}}</view>
+            <view>
+              <image src="../../images/huo.png" class="huo"></image>
+              <text class="text1">声望</text>
+              <text class="text2">{{item.score}}</text>
+            </view>
+            <view class="list1">
+              <view>创建日期：{{item.createtime}}</view>
+              <view>历史活动：{{item.a_num}}次</view>
+              <view>俱乐部人数：{{item.user_num}}人</view>
+              <view>历史参与：{{item.part_num}}次</view>
+              <view>发圈数量：{{item.quan_num}}次</view>
+            </view>
+          </view>
+        </view>
+      </view>
+
+        
+      <!--  -->
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>   -->
+    <!-- 我是呵呵 -->  
+   <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+   <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+   <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='white-space: nowrap;height:100%;'overflow="{{hidden}}"> 
+
+    <view class="listContent">
+        <view class="list" wx:for="{{list}}" bindtap="toDetail" data-id="{{item.id}}" data-name="{{item.name}}" >
+          <image src="{{item.image}}" class="list_img" mode='aspectFill'></image>
+          <view class="list_content">
+            <view class="title">{{item.name}}</view>
+            <view>
+              <image src="../../images/huo.png" class="huo"></image>
+              <text class="text1">声望</text>
+              <text class="text2">{{item.score}}</text>
+            </view>
+            <view class="list1">
+              <view>创建日期：{{item.createtime}}</view>
+              <view>历史活动：{{item.a_num}}次</view>
+              <view>俱乐部人数：{{item.user_num}}人</view>
+              <view>历史参与：{{item.part_num}}次</view>
+              <view>发圈数量：{{item.quan_num}}次</view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>  -->
+    <!-- 我是嘿嘿 -->  
+    <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+    <view class = "{{currentTab == 2 ? 'show':'hidden'}}" >
+      <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='white-space: nowrap;height:100%;'overflow="{{hidden}}"> 
+
+     <view class="listContent">
+        <view class="list" wx:for="{{list}}" bindtap="toDetail" data-id="{{item.id}}" data-name="{{item.name}}" >
+          <image src="{{item.image}}" class="list_img" mode='aspectFill'></image>
+          <view class="list_content">
+            <view class="title">{{item.name}}</view>
+            <view>
+              <image src="../../images/huo.png" class="huo"></image>
+              <text class="text1">声望</text>
+              <text class="text2">{{item.score}}</text>
+            </view>
+            <view class="list1">
+              <view>创建日期：{{item.createtime}}</view>
+              <view>历史活动：{{item.a_num}}次</view>
+              <view>俱乐部人数：{{item.user_num}}人</view>
+              <view>历史参与：{{item.part_num}}次</view>
+              <view>发圈数量：{{item.quan_num}}次</view>
+            </view>
+          </view>
+        </view>
+
+
+      </view>
+      </scroll-view>
+      </view>
+</view>
+
+</view>
+    <!--  -->

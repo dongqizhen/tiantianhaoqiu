@@ -1,0 +1,38 @@
+/* pages/maxgame/maxgame.wxss */
+page{
+  background: #f5f5f5;
+}
+.scoreList{
+  background: #fff;
+  border-radius: 27rpx;
+  margin:20rpx 30rpx;
+}
+.scoremain{
+  border-bottom: 1px solid #dedede;
+  margin:0 40rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.scoremain:last-child{
+  border-bottom: 0;
+}
+.scoremain text{
+  font-size:22rpx;
+}
+.lefttext text:first-child{
+  font-size: 48rpx;
+  color:#333;
+  margin-left:10rpx;
+}
+.righttext{
+  margin:40rpx 0 25rpx 0;
+  line-height:48rpx;
+}
+.righttext text:first-child{
+  color: #999;
+  margin-right:26rpx;
+}
+.righttext text:last-child{
+  color: #333;
+}

@@ -1,0 +1,72 @@
+<!--pages/motion/motion.wxml-->
+<cu-custom bgColor="bg-gradual-blue"><view slot="content">运动</view></cu-custom>
+<view class="top">
+  <view class="motionTop">
+    <image src='{{motionList.user_info.avatar}}' class='headimg'></image>
+    <view class='name'>
+        <text>{{motionList.user_info.nickname}}</text>
+    </view>
+    <view class="scan" bindtap="getScancode"><image src="../../images/scan.png"></image></view>
+  </view>  
+  <view class="motionCenter">
+   
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{titleArray}}">
+      
+      <view class="picker">
+        <view class="bg-dot one">
+          <image src="/img/dot.svg"></image>
+        </view>
+        {{titleArray[index]}}
+        <view class="bg-dot two">
+          <image src="/img/dot.svg"></image>
+        </view>
+      </view>
+      
+      <view class="arrow">
+        <image src="/img/arrow-bottom.svg"></image>
+      </view>
+    </picker>
+    
+    
+  </view>
+  <view class="motionBottom">
+    <view class="totalPoints" bindtap="scoreDetail">
+      <text class="ptext">总得分</text>
+      <text class="points">{{motionList.all_score}}</text>
+      <image src="../../images/jtright.png" class="righticon"></image>
+    </view>
+    <view class="pointsDetail">
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">总局数</text>
+          <text class="djtext2">{{motionList.all}}</text>
+        </view>
+      </view>
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">胜</text>
+          <text class="djtext2">{{motionList.win}}</text>
+        </view>       
+      </view>
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">负</text>
+          <text class="djtext2">{{motionList.fail}}</text>
+        </view> 
+      </view>
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">胜率</text>
+          <text class="djtext2" wx:if="{{winscore}}">{{winscore}}<text>%</text></text>
+        </view>
+      </view>
+    </view>
+
+  </view> 
+  <view class="playgame">
+    <view class="gameList"><text class="gametit">单局平均分</text><text class="nums" style="margin-right:30rpx" wx:if="{{onescore}}">{{onescore}}</text></view>
+    <view class="gameList"><text class="gametit">单杆平均分</text><text class="nums" style="margin-right:30rpx" wx:if="{{onerod}}">{{onerod}}</text></view>
+    <view class="gameList" bindtap="toMaxgame"><text class="gametit">单局最高分</text><text class="nums">{{motionList.max.score}}</text><image src="../../images/jtright.png"></image></view>
+    <view class="gameList" bindtap="toMaxrod"><text class="gametit">单杆最高分</text><text class="nums">{{motionList.one_max.score}}</text><image src="../../images/jtright.png"></image></view>
+  </view>   
+</view>

@@ -1,0 +1,111 @@
+<!--pages/playDetail/playDetail.wxml-->
+<wxs module="dateUtil" src="../../wxs/formatDate.wxs"></wxs>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">得分明细</view></cu-custom>
+<view class="top" wx:for="{{detailArr}}" wx:for-item="items1" wx:key="index" style='margin-bottom:{{ isIphoneX ? 68 : 34 }}rpx;'>
+  <view class="playtopCont">
+    <view class="startTime">
+      <view class="center">
+        <image src="../../images/times.png"></image>
+        <text>开始时间: {{items1.starts}}</text>
+      </view>
+    </view>
+    <view class="startTime zqnum">
+      <view class="center">
+        <view><image src="../../images/playicon.png"></image></view>
+        <text>{{items1.name}}   桌号：{{items1.tainum}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="playgame">
+    <view class="detailtop" wx:if="{{items1.type==2}}">
+      <view class="score">
+        <text>{{items1.score}}</text>
+        <text>总得分</text>
+      </view>
+      <view class="gamestatus" wx:if="{{items1.win_level>items1.all_level - items1.win_level}}"><text>胜</text></view>
+      <view class="gamestatus" wx:if="{{items1.win_level<items1.all_level - items1.win_level}}"><text>负</text></view>
+      <view class="gamestatus" wx:if="{{items1.win_level==items1.all_level - items1.win_level}}"><text>平局</text></view>
+      <view class="scoreTwo">
+        <text>{{items1.win_level}} : {{items1.all_level - items1.win_level}}</text>
+      </view>
+      <view class="personInfo" hidden="{{showModel1}}" wx:if="{{items1.type==2}}">
+        <image src="{{items1.avatarA}}"></image>
+        <text>{{items1.nicknameA}}</text>
+      </view>
+      <view class="personInfo" hidden="{{showModel2}}" wx:if="{{items1.type==2}}">
+        <image src="{{items1.avatarB}}"></image>
+        <text>{{items1.nicknameB}}</text>
+      </view>
+    </view>
+    <view class="detailtop" wx:if="{{items1.type==1}}">
+      <view class="score" style="width:100%">
+        <text>{{items1.score}}</text>
+        <text>总得分</text>
+      </view>
+    </view>
+    <view class="pointsDetail">
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">{{items1.max_score}}</text>
+          <text class="djtext2">单局最高分</text>
+        </view>
+      </view>
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">{{items1.onemax}}</text>
+          <text class="djtext2">单杆最高分</text>
+        </view>       
+      </view>
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1" style="font-size:36rpx;">{{items1.playtime}}</text>
+          <text class="djtext2">运动总用时</text>
+        </view> 
+      </view>
+      <view class="detailDJ">
+        <view class="detailWidth">
+          <text class="djtext1">{{items1.kilocalorie}}</text>
+          <text class="djtext2">消耗(千卡)</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<view class="platLists" wx:for="{{botInfo}}" wx:key="index" wx:for-index="index" data-index="{{index}}">
+  <view class="playDetail">
+    <view class="detailTit">
+      <view class="text1"><text>第{{index+1}}局</text></view>
+      <view class="text2" wx:if="{{items1.type==2}}">
+        <text class="gameresult gray" wx:if="{{item.my_score<item.rival_score}}">负</text>
+        <text class="gameresult purple" wx:if="{{item.my_score>item.rival_score}}">胜</text>
+        <text class="gameresult purple" wx:if="{{item.my_score==item.rival_score}}">平</text>
+        <text>{{item.my_score}} : {{item.rival_score}}</text>
+      </view>
+      <view wx:if="{{items1.type==1}}" style="flex:1"></view>
+      <view class="text1"><text>用时: {{item.playstime}}</text></view>
+    </view>
+    <view wx:if="{{item.get_plays.length==0}}"></view>
+    <view class="Q_points" style="height:{{item.height}}rpx" data-index="{{index}}" >
+      <view class="pointsList" wx:for="{{item.plays_done}}" wx:key="index" wx:for-item="itemballs" wx:if="{{item.plays_done.length!=0}}">
+        <view class="imagebox"><image src="{{itemballs.player}}"></image></view>
+        <view class="billiards {{itemballs.plays.length>1 && 'hasVideo'}}">
+          <text wx:for="{{itemballs.plays}}" wx:for-item="itemball" wx:key="index" class="{{itemball.ball}}"></text> 
+        </view>
+        <view class="video_wrapper" bindtap="playVideo" wx:if="{{itemballs.plays.length>1}}">
+          <image src="/img/video1.svg"></image>
+        </view>
+        <view class="Q_nums"><text>{{itemballs.score}}</text></view>
+      </view>
+    </view>
+    <view class="develop" bindtap="toChange" data-index="{{index}}" data-id="{{item.id}}"><image src="{{item.height ? '../../images/jtbottom.png' : '../../images/jttop.png'}}"></image></view>
+  </view>
+  <!-- <view class="detailMain" hidden="{{item.hidden}}">
+      <view>得分明细显示</view>
+      <view>
+        <text wx:for="{{item.plays_log}}" wx:for-item="itemlog">{{itemlog}}</text>
+      </view>
+    </view> -->
+</view>
+
+
+</view>

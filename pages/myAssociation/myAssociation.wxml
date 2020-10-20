@@ -1,0 +1,105 @@
+<!--pages/association/association.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">我的俱乐部</view></cu-custom>
+<view>
+<!--  -->
+<!-- <view class="top">
+<image src="../../images/sousuo(2).png" class="search_img" bindtap="getSearch"></image>
+<input type="text" placeholder="搜索社群" class="search" bindtap="search"></input>
+</view> -->
+<!--  -->
+<!--index.wxml-->
+<!-- <view class="container"> -->
+<view>
+ 
+<view class='content_index'>
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" data-type="1" bindtap="swichNav">
+     <view class="tab_text">我发布的</view>
+   </view> 
+    <!--{{date2}}  -->
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" data-type="2" bindtap="swichNav">
+      <view class="tab_text">我关注的</view>
+    </view>  
+
+  </view>
+</view>
+
+</view>
+<view style="margin-top:29rpx;padding-left:34rpx;padding-right:34rpx;margin-bottom:87rpx;">
+<view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+     <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='height:100%;white-space: nowrap;padding-bottom:90rpx;' overflow="{{hidden}}">
+      <view class="listContent">
+        <view class="list" wx:for="{{list}}" bindtap="toDetail" data-name="{{item.name}}" data-id="{{item.id}}">
+        <block>
+          <image src="{{item.image}}" class="list_img"></image>
+        </block>
+          
+          <view class="list_content">
+            <view class="title">{{item.name}}</view>
+            <view>
+              <image src="../../images/huo.png" class="huo"></image>
+              <text class="text1">声望</text>
+              <text class="text2">{{item.score}}</text>
+            </view>
+            <view class="list1">
+              <view>创建日期：{{item.createtime}}</view>
+              <view>历史活动：{{item.a_num}}次</view>
+              <view>俱乐部人数：{{item.user_num}}人</view>
+              <view>历史参与：{{item.part_num}}次</view>
+              <view>发圈数量：{{item.quan_num}}次</view>
+            </view>
+            <image src="../../images/edit.png" class="edit_img" catchtap="edit" data-id="{{item.id}}"></image>
+          </view>
+        </view>
+      </view>
+      <!--  -->
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>   -->
+    <!-- 我是呵呵 -->  
+   <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+   <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+     <view class="noContent" wx:if="{{myCareList.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='white-space: nowrap;height:100%;'overflow="{{hidden}}"> 
+        <view class="listContent">
+        <view class="list" wx:for="{{myCareList}}" bindtap="toDetail" data-name="{{item.name}}" data-id="{{item.id}}">
+        <block>
+          <image src="{{item.image}}" class="list_img"></image>
+        </block>
+          
+          <view class="list_content">
+            <view class="title">{{item.name}}</view>
+            <view>
+              <image src="../../images/huo.png" class="huo"></image>
+              <text class="text1">声望</text>
+              <text class="text2">{{item.score}}</text>
+            </view>
+            <view class="list1">
+              <view>创建日期：{{item.createtime}}</view>
+              <view>历史活动：{{item.a_num}}次</view>
+              <view>俱乐部人数：{{item.user_num}}人</view>
+              <view>历史参与：{{item.part_num}}次</view>
+              <view>发圈数量：{{item.quan_num}}次</view>
+            </view>
+            <!-- <image src="../../images/edit.png" class="edit_img" catchtap="edit" data-id="{{item.id}}"></image> -->
+          </view>
+        </view>
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>  -->
+    <!-- 我是嘿嘿 -->  
+    <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+    
+</view>
+<!--  -->
+<button class="btn" bindtap="toCreate">想创建自己的俱乐部吗？从这里开始吧</button>
+</view>
+    <!--  -->

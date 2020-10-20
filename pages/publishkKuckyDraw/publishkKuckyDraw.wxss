@@ -1,0 +1,241 @@
+/* pages/publishkKuckyDraw/publishkKuckyDraw.wxss */
+.con{
+  padding: 66rpx 33rpx 100rpx 33rpx;
+}
+.des{
+  font-size:30rpx;
+  color:rgba(51,51,51,1);
+  font-weight: bold;
+  padding-bottom: 22rpx;
+  margin-top:12rpx;
+}
+.textarea{
+  width:auto;
+  margin-bottom: 19rpx;
+  min-height:194rpx;
+  background:rgba(255,255,255,1);
+  border:3rpx solid rgba(245,245,245,1);
+  border-radius:27rpx;
+  padding: 30rpx;
+  color: rgb(202, 34, 34);
+  font-size: 28rpx;
+}
+.list_check{
+  /* display: flex; */
+  border-bottom: 3rpx solid #F5F5F5;
+  padding-bottom:27rpx; 
+}
+.next_img{
+  width: 10rpx;
+  height: 17rpx;
+  /* display: inline-block; */
+  float: right;
+  margin-top: 7rpx;
+}
+.text{
+  font-size:21rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+}
+picker{
+  flex: 1;
+  text-align: right;
+  font-size:21rpx;
+  font-family:PingFang SC;
+  font-weight:400;
+  color:rgba(51,51,51,1);
+  padding-right: 31rpx;
+}
+.pubballinfo{
+  border-bottom: 3rpx solid #F5F5F5;
+  display:flex;
+  flex-direction:row;
+  line-height:90rpx;
+}
+.form_input{
+  font-size: 20rpx;
+  color: #333;
+  flex:1;
+  text-align:right;
+  height:90rpx;
+  line-height:90rpx;
+  margin-right:10rpx;
+  width:420rpx;
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+
+}
+.form_input1{
+  font-size: 26rpx;
+  color: #333;
+  flex:1;
+  text-align:right;
+  height:90rpx;
+  line-height:90rpx;
+  margin-right:10rpx;
+  width:420rpx;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+}
+.form_check{
+  width: 10rpx;
+  height: 17rpx;
+  float: right;
+  margin-top: 36rpx;
+}
+.form_view{
+  font-size:21rpx;
+  color:#333333
+}
+.pubballinfo:last-child{
+  margin-bottom: 40rpx;
+}
+.number{
+  height:80rpx;
+  background:rgba(255,255,255,1);
+  border:3rpx solid rgba(245,245,245,1);
+  border-radius:27rpx;
+  line-height: 80rpx;
+  font-size: 21rpx;
+  color: #999;
+  text-align: center;
+  float: left
+}
+.view_input{
+  float: right;
+}
+.text1{
+  float: right;
+  font-size: 21rpx;
+  color: #333;
+  padding-left: 19rpx;
+}
+.publish{
+  height:87rpx;
+  background:rgba(121,102,254,1);
+  box-shadow:0px 10rpx 16rpx 0px rgba(132,105,244,0.4);
+  border-radius:43rpx;
+  line-height: 87rpx;
+  color: #fff;
+  font-size: 29rpx;
+  margin-top: 100rpx;
+}
+.prizeSize_text{
+  text-align: center;
+  font-size: 26rpx;
+  color: #333;
+}
+.prizeSize{
+  padding-top: 30rpx;
+}
+.prizeSize_view{
+  display: flex;
+  padding-top: 25rpx;
+  text-align: center
+}
+.num_text{
+  flex: 1;
+  font-size: 21rpx;
+  color: #333;
+} 
+
+.addCircle{
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 20rpx;
+  text-align: center
+  /* display: block */
+}
+.num_img{
+  /* width: 125rpx;
+  height: 95rpx; */
+  width: 150rpx;
+  height: 112rpx;
+}
+.shopbomb{
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:101;
+}
+.shopmains{
+  width:90%;
+  /* background:#fff; */
+  position:fixed;
+  top: 60%;
+  margin-left: 5%;
+  /* left:50%;
+  margin-left:-333rpx; */
+  margin-top: -538rpx;
+  border-radius: 27rpx;
+  /* z-index: 9999 */
+}
+.shopmains1{
+  width:100%;
+  background:#fff;
+  position:fixed;
+  bottom:0;
+}
+.close{
+  width:32rpx;
+  height:32rpx;
+  float:right;
+  margin-top:25rpx;
+  margin-right:20rpx;
+}
+.posterbtn{
+  width: 90%;
+  margin-left: 5%;
+height:87rpx;
+background:rgba(121,102,254,1);
+box-shadow:0px 10rpx 16rpx 0px rgba(132,105,244,0.4);
+border-radius:43rpx;
+line-height: 87rpx;
+color: #fff;
+margin-top: 49rpx
+}
+.p3{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -20rpx;
+  margin-top: 33rpx;
+}
+.growth{
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 30rpx 15rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
+  max-height: 500rpx;
+  overflow-y: scroll
+}
+
+.growth_textView{
+  /* flex: 1; */
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 30rpx;
+}
+.growth_textView image{
+  width: 150rpx;
+  height: 112rpx;
+  text-align: center;
+  /* margin:0 16rpx; */
+}
+.selected{
+  background-color: #FFA404;
+  color: rgba(255, 255, 255, 1);
+  /* border:1px solid #FFA404; */
+}
+.sure_btn{
+  color: #fff;
+  background:rgba(121,102,254,1)
+}

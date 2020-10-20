@@ -1,0 +1,26 @@
+<!--pages/allAssociationActivity/allAssociationActivity.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">全部俱乐部活动</view></cu-custom>
+<view class="activityList">
+ <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+        <view class="ac_list" wx:for="{{list}}" bindtap="toDetail" data-id="{{item.id}}">
+          <image src="../../images/end.png" class="po_img" wx:if="{{nowDate >= item.endtime}}"></image>
+          <image wx:else src="../../images/new.png" class="po_img"></image>
+          <image src="{{item.image}}" class="photo" mode="scaleToFill"></image>
+          <view style="height:56rpx">
+           <view class="activityName">{{tools.sub(item.title)}}</view>
+          <view class="activityNumber">{{item.bm_num}}/{{item.num}}人</view>
+          </view>
+         
+        </view>
+       
+        <!-- <view class="ac_list">
+          <image src="../../images/new.png" class="po_img"></image>
+          <image src="../../images/picture.png" class="photo"></image>
+          <view class="activityName">这里是活动</view>
+          <view class="activityNumber">8/25人</view>
+        </view> -->
+      </view>

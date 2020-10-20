@@ -1,0 +1,88 @@
+<!--pages/publishBall/publishBall.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">编辑俱乐部</view></cu-custom>
+<view class='content' style="padding-bottom:50rpx;margin-top:48rpx">
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='form_view'>俱乐部照片</view>
+<!-- // 利用绝对定位 隐藏canvas -->
+<canvas canvas-id="photo_canvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-1300px;top:-1300px;"></canvas>
+<view class="image_content">
+ <view class='image' wx:for="{{picPaths}}" wx:key>
+  <image class="moment_img" src="{{item}}"></image>
+  <view class="del" bindtap="delImg" data-src="{{item}}" data-idx="{{index}}">
+    <image src="../../images/deltel.png" class="del_img"></image>
+  </view>
+ </view>
+ <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+  <image bindtap="chooseimage" class="moment_img" src='../../images/add.png'></image>
+  <!-- <view class="publish_img" bindtap="chooseimage">+</view> -->
+ </view>
+ </view>
+<view class="pubballinfo">
+  <view class='form_view'>俱乐部名称</view>
+    <input type='text' value='{{name}}' bindinput='changeTitle' placeholder='请输入俱乐部名称' class='form_input1' placeholder-class="placeholderStyle"  style='font-size:26rpx !important;' bindinput="getName"></input>
+</view>
+<view class="pubballinfo" hidden="{{hidden}}">
+  <view class='form_view'>球馆地址</view>
+    <input type='text' placeholder='定位俱乐部地点' class='form_input' value="{{address}}" disabled='true' bindtap='chooseMapViewTap'></input>
+    <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<view class="pubballinfo" style="padding-top:20rpx;">
+  <view class='form_view'>俱乐部类型</view>
+    <singer id="singer" bind:singerCancel="_singerCancel" bind:singerConfirm="_singerConfirm" singerContent='{{singerContent}}' singer_list="{{singer_list}}" style="margin-left:43rpx;"bind:traCheckedNum="changeType" text="{{is_club}}" myoff='{{is_club}}' disabled="disabled">
+  </singer>
+</view>
+<view class="pubballinfo" hidden="{{hidden1}}">
+ <view class='form_view'>性别限制</view>
+<radio-group bindchange="radiochange" class='form_input1' >
+   <radio value="{{item.value}}" disabled="{{disabled1}}" checked="{{item.checked}}" wx:for="{{items}}" wx:key>{{item.name}}</radio>
+</radio-group>
+</view>
+<!--  -->
+<view class="pubballinfo"  hidden="{{hidden}}" style="border-bottom:none">
+  <view class='form_view'>营业时间</view>
+  <view class="form_input1">
+  <picker mode="time" value="{{time1}}" bindchange="bindTimeChange1" style="display:inline-block" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{time1}}
+    </view>
+  </picker>
+  <text>至</text>
+  <picker mode="time" value="{{time2}}" bindchange="bindTimeChange2" style="display:inline-block" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{time2}}
+    </view>
+  </picker>
+  </view>
+    
+</view>
+<view style="font-size:24rpx;color:#cb0000;border-bottom:3rpx solid #F5F5F5;padding-bottom:10rpx;"  hidden="{{hidden}}">(先点击设定开业时间，再次点击设定歇业时间)</view>
+<view class="pubballinfo">
+  <view class='form_view'>联系电话</view>
+    <input type='number' value='{{phoneNum}}' bindinput='changeTitle' placeholder='请输入联系电话' class='form_input1' placeholder-class="placeholderStyle"  style='font-size:26rpx !important;' bindinput="getPhoneNum"></input>
+</view>
+<view class="type" hidden="{{hidden}}">
+  <view class='form_view'>设备设施</view>
+  <view>
+    <view>
+      <view class="type_view" wx:for="{{channeldetail.cate}}" wx:key>
+        <view class="type_text">{{item.name}}</view>
+        <input type="number" placeholder="请输入" class="input_num" bindinput="getNum" data-id="{{item.id}}" value="{{item.num == 0? '' : item.num}}"></input>
+      </view>
+    </view>
+  </view>
+  
+</view>
+
+<!--  -->
+<!-- <view class="pubballinfo"> -->
+   
+
+<view>
+  <view class='form_view' style='margin-top:36rpx;'>俱乐部简介<text style='float:right'>{{currentWordNumber}}/{{max}}</text></view>
+  
+   <textarea class="textarea" bindinput='bindinput10' value="{{description}}" minlength="{{min}}" maxlength="{{max}}" class='form_area' placeholder='描述一下您的俱乐部吧......'  placeholder-class="placeholderStyle" ></textarea>
+</view>
+<button class='publishBall'formType="submit" style='margin-bottom:{{ isIphoneX ? 168 : 100 }}rpx;' disabled="{{disabled}}">保存</button>
+</form>
+</view>
+

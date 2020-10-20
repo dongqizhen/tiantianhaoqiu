@@ -1,0 +1,136 @@
+<!--pages/activityDetail/activityDetail.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">活动详情</view></cu-custom>
+<view>
+  <view class="swiper swiper-box">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{imgUrls}}">
+    <swiper-item>
+  <!-- <swiper-item> -->
+      <!-- <image src="{{item}}" class="slide-image"/> -->
+    <!-- </swiper-item> -->
+    <image src="{{item}}" class="slide-image" bindtap='LookPhoto'  data-photUrl='{{imgUrls}}' data-idx="{{index}}" mode ="scaleToFill"/>
+     <!-- <navigator url="../{{item.image}}"  wx:else>
+      <image src="{{item.url}}" class="slide-image"/>
+      </navigator>  -->
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+<!-- top -->
+<view class="top_title">
+  <view class="title">
+    <text>{{detail.page.title}}</text>
+    <image src="../../images/fenxiang.png" catchtap="share" data-billId="{{detail.page.id}}"></image>
+  </view>
+  <view class="cname">俱乐部名称：{{detail.page.cname}}</view>
+  <view class="top_date">
+    <view class="date"><image src="../../images/riqi.png" class="time_img"></image>{{detail.page.date}}</view>
+    <view class="date_right">
+      <!-- <button class="btn"> 
+      <image src="../../images/edit.png" style="width:40rpx;height:40rpx;vertical-align:middle"></image>
+       <text>编辑</text>
+      </button> -->
+      <!-- <button class="btn"> 
+        <text>查看群聊</text>
+      </button> -->
+      <button class="btn" bindtap="toDetail" data-id="{{detail.page.channel_id}}"> 
+        <text>进入俱乐部</text>
+      </button>
+    </view>
+  </view>
+</view>
+<!--  -->
+<view class="top_content">
+  <view class="mem_title">
+    <view class="men_text1">报名</view>
+    <view class="men_text2">{{detail.page.bm_num}}/{{detail.page.num}} 人</view>
+  </view>
+  <view class="mem_content">
+  <block wx:for="{{detail.user}}">
+  <view class="url_view">
+   <image src="{{item.avatar}}" class="logo"></image>
+   <view class="url_text">{{tools.subRecruit(item.username)}}</view>
+  </view>
+   
+    </block>
+    <view class="noneuser" wx:if="{{detail.user==''}}">暂无参加成员</view>
+  </view>
+</view>
+<!--  -->
+<view class="top_content">
+  <view class="activity_title">活动公告</view>
+  <view class="activity_con">{{detail.page.content}}</view>
+</view>
+<!--  -->
+<view class="top_content">
+  <view class="activity_title">活动地址</view>
+  <view class="activity_con" bindtap="activity_adress">
+    <image src="../../images/site.png" class="site"></image>
+    <text>{{detail.page.address}}</text>
+  </view>
+</view>
+<!--  -->
+
+<!--  -->
+
+<view class='adress_bottom'style="margin-bottom:200rpx;">
+      <view class='comment_view'>
+          <image src='{{perUrl}}' class='bottom_logo'></image>
+          <input placeholder='说点什么吧' class='input_comment'  placeholder-class="placeholderStyle" value='{{comment_text}}' bindblur='getComment'></input> 
+          <view class='comment' bindtap='publishComment'>评论</view>
+      </view>
+      <!--  -->
+      <view class='comment_list'  wx:for="{{commentList}}">
+        <view>
+            <image src='{{item.user.avatar}}' class='bottom_logo'></image>
+            <view class='list_right'>
+              <view class='name'>{{item.user.nickname}}</view>
+              <view class='date1'>{{item.create_date}}</view>
+              <view class='reply' bindtap='reply' data-index="{{index}}" data-pid="{{item.id}}">回复</view>
+              <view class='reply_list'>
+              <text>{{item.content}}</text>
+              <text wx:if='{{userId == item.user_id}}' style="float:right" bindtap="deleteA" data-sid="{{item.id}}">删除</text>
+              </view>
+              <view class='reply_list' wx:key wx:for="{{commentList[index].huifu}}"><image src='{{item.avatar}}'style='width:42rpx;height:42rpx;border-radius:50%;margin-right:10rpx;vertical-align:middle'></image>
+              <text>{{item.content}}</text>
+              <text wx:if='{{userId == item.user_id}}' style="float:right" bindtap="deleteA" data-sid="{{item.id}}">删除</text>
+              </view>
+              
+             <!-- <view class='reply_list' wx:key wx:for="{{commentList}}" wx:else>{{item.content}}</view> -->
+             <input type='text'class='invite' placeholder='输入您想说的话' hidden='{{remarkinfo[index]}}' data-index="{{index}}" confirm-type="send"  bindconfirm="wxSearchConfirm" value='{{send_text}}' bindblur='sendComment'></input>
+            </view>
+           
+        </view>
+        
+
+      </view>
+      
+  </view>
+  <view style="width:100%;height:60rpx"></view>
+<!--  -->
+<!-- 分享 -->
+<view class="shopbomb" hidden="{{showModel}}" catchtouchmove="true">
+  <view class="shopmains">
+    <painter palette="{{template}}" bind:imgOK="onImgOK" />
+    <button class="posterbtn" bindtap='download'>保存图片，分享到朋友圈</button> 
+    <image src="../../images/p3.png" class="p3" bindtap="close"></image>
+  </view>
+ 
+</view>
+<view class="pos_fix"  style='padding-bottom:{{ isIphoneX ? 68 : 34 }}rpx;'>
+<button class="kefu_view"  bindtap="tel">
+<image src="{{publicimgUrl}}/images/kefu.png" class="kefu_img"></image>
+<text class="kf_text">咨询</text>
+</button>
+<button class="kefu_view" open-type="share">
+<image src="{{publicimgUrl}}/images/share.png" class="kefu_img" ></image>
+<text class="kf_text">分享</text>
+</button>
+<button class="noEnter" bindtap="nowEnter" wx:if="{{detail.is_bm == 0}}">立即关注/报名</button>
+<button class="hasEnter" wx:elif="{{detail.is_bm == 1}}">
+<image src="../../images/wancheng.png" style="width:32rpx;height:32rpx;vertical-align:middle;margin-bottom:10rpx;"></image>
+<text style="padding-left:10rpx;">已报名</text></button>
+<button class="hasOver"  wx:elif="{{detail.is_bm == 2}}">已结束</button>
+</view>
+</view>

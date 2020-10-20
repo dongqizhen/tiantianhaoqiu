@@ -1,0 +1,178 @@
+/* pages/kuckyDrawDetail/kuckyDrawDetail.wxss */
+page{
+  background: #f5f5f5; 
+}
+.con{
+  padding: 25rpx 34rpx 129rpx 34rpx;
+}
+.con_top{
+  background:rgba(255,255,255,1);
+  box-shadow:0px 5rpx 14rpx 0px rgba(203,203,203,0.21);
+  border-radius:27rpx;
+  padding: 36rpx 33rpx;
+  margin-bottom: 26rpx;
+}
+.top_title{
+  font-size:29rpx;
+  color:rgba(51,51,51,1);
+  font-weight: bold;
+}
+.top_des{
+  padding-top: 32rpx;
+  font-size:27rpx;
+  color:rgba(102,102,102,1);
+  line-height:40rpx;
+}
+.logo{
+  width:65rpx;
+  height:67rpx;
+  border-radius:50%;
+}
+.champion_po{
+  position: relative;
+  display: inline-block
+}
+.champion{
+  width: 43rpx;
+  height: 40rpx;
+  position: absolute;
+  top: -35rpx;
+  left: 0;
+  margin-left: 14rpx;
+}
+.top_list{
+  margin-bottom: 60rpx;
+}
+.name{
+  font-size:29rpx;
+  color:rgba(51,51,51,1);
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 24rpx;
+  margin-top: 15rpx;
+  font-weight: bold;
+}
+.list_num{
+  font-size:27rpx;
+  color:rgba(102,102,102,1);
+  float: right;
+  margin-top:15rpx;
+}
+.btn_bottom{
+  position: fixed;
+  left: 0%;
+  bottom: 0;
+  /* margin-left:5%; */
+  width: 100%;
+  background: #fff;
+  padding: 10rpx;
+  /* margin-right:5%; */
+}
+.kefu_view{
+  display: inline-block;
+  margin-left:10rpx;
+}
+.kefu_view{
+  margin-right: 10rpx;
+  background: #fff;
+  border:none !important;
+  /* display: inline-block !important; */
+  float: left;
+  margin-top: 15rpx;
+  line-height: 1;
+}
+.kefu_view:after{
+  border:none
+}
+.button-hover{
+  background: none;
+}
+.kefu_img{
+  width:42rpx;
+  height: 42rpx;
+  display: block;
+  }
+  .kf_text{
+    font-size:23rpx;
+    color: rgba(102,102,102,1)
+  }
+  .kf_text{
+    display: inline-block;
+    /* padding-top: 10rpx; */
+  }
+.share_btn{
+  /* background:linear-gradient(270deg,rgba(79,195,87,1),rgba(50,138,27,1)); */
+  height:87rpx;
+  border-radius:43rpx;
+  line-height: 87rpx;
+  font-size: 29rpx;
+  color: #fff;
+  padding-left: 0;
+  padding-right: 0;
+  display: inline-block;
+  width: 20%
+}
+.nowEnter{
+  /* margin-top: 81rpx; */
+  height:87rpx;
+  background:rgba(121,102,254,1);
+  box-shadow:0px 10rpx 16rpx 0px rgba(132,105,244,0.4);
+  border-radius:43rpx;
+  line-height: 87rpx;
+  font-size: 29rpx;
+  color: #fff;
+  margin-left: 15rpx;
+}
+.hasChou{
+  height:87rpx;
+  border:2px solid rgba(121,102,254,1);
+  box-shadow:0px 10rpx 16rpx 0px rgba(132,105,244,0.4);
+  border-radius:43px;
+  line-height: 87rpx;
+  font-size: 29rpx;
+  color: #7966FE;
+   margin-left: 15rpx;
+}
+.wancheng{
+  width: 32rpx;
+  height: 32rpx;
+  display: inline-block;
+  vertical-align: middle;
+}
+/* .button-hover{
+  background: #fff;
+} */
+.hasOver{
+  background:rgba(200,200,200,1);
+  /* border-radius:43rpx; */
+  font-size: 29rpx;
+  color: #fff;
+  border: none;
+  height:87rpx;
+  line-height: 87rpx;
+   margin-left: 15rpx;
+}
+.kukcyImg{
+  width: 111rpx;
+  height: 68rpx;
+  margin-left: 50rpx
+}
+.prizeList{
+  display:inline-block;
+  margin:10rpx 30rpx;
+  /* width: 111rpx; */
+  
+}
+.prizeList .c_name{
+  width:150rpx;
+  height: 79rpx;
+  font-size: 24rpx;
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  white-space: normal !important;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: center
+}

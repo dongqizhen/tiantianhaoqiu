@@ -1,0 +1,19 @@
+<!--pages/kuckyDrawList/kuckyDrawList.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">抽奖列表</view></cu-custom>
+<view class="con">
+ <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+      
+ <view class="list" wx:for="{{list}}" >
+    <navigator url="/pages/kuckyDrawDetail/kuckyDrawDetail?id={{item.id}}" hover-class="none">
+    <view class="title">{{item.content}}</view>
+    <view style="display:flex;padding-top:28rpx;">
+      <view class="date">{{item.createtime}}</view>
+      <view class="num">{{item.bm_num}}/{{item.num}}人</view>
+    </view>
+    </navigator>
+ </view>
+
+</view>

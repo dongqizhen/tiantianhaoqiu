@@ -1,0 +1,11 @@
+<!--pages/systemMessage/systemMessage.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">系统消息</view></cu-custom>
+<view class="con">
+  <view class="list" wx:for="{{list}}">
+    <view class="list_top">
+      <view class="title">{{item.title}}</view>
+      <view class="date">{{item.createtime}}</view>
+    </view>
+    <view class="des">{{item.description}}</view>
+  </view>
+  </view>

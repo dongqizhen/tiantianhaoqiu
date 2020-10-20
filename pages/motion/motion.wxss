@@ -1,0 +1,184 @@
+/* pages/motion/motion.wxss */
+page{
+  background: #f5f5f5;
+}
+.motionTop{
+  background: #fff;
+  padding: 30rpx 53rpx;
+}
+.headimg{
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.name{
+  display: inline-block;
+  vertical-align: top;
+  font-size: 30rpx;
+  padding:40rpx 0 45rpx 30rpx;
+}
+.scan{
+  display: inline-block;
+  vertical-align: top;
+  float: right;
+  margin-top: 32rpx;
+}
+.scan image{
+  width: 57rpx;
+  height:56rpx;
+}
+.motionCenter{
+  height: 60rpx;
+  background: #7966FE;
+  margin-top: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-weight: bold;
+  position: relative;
+  font-size: 28rpx;
+}
+
+.motionCenter picker .bg-dot{
+  /* background: url('/img/dot.svg') no-repeat center; */
+  display: flex;
+  height: 60rpx;
+  width: 30rpx;
+}
+
+.motionCenter .bg-dot.one{
+  margin-right: 25rpx;
+}
+
+.motionCenter .bg-dot.two{
+  margin-left: 25rpx;
+}
+
+.motionCenter .bg-dot image{
+  display: flex;
+  height: 100%;
+}
+
+.motionCenter picker{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  justify-content: center;
+}
+.motionCenter picker .picker{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.motionCenter .arrow{
+  position: absolute;
+  bottom: -37rpx;
+  height: 30rpx;
+  width: 100%;
+  left: 0;
+}
+.motionCenter .arrow image{
+  height: 100%;
+  width: 100%;
+}
+
+
+.motionBottom{
+  background: #fff;
+  margin:26rpx 0;
+  margin-top: 40rpx;
+}
+.ptext{
+  font-size: 22rpx;
+  color: #666;
+  float: left;
+  /* margin-top:62rpx; */
+}
+.points{
+  font-size: 106rpx;
+  font-weight: bold;
+  color: #333;
+  /* float: left;
+  margin-left:127rpx; */
+}
+.righticon{
+  width:25rpx;
+  height:42rpx;
+  float: right;
+  margin-top:33rpx;
+}
+.totalPoints{
+  padding: 30rpx 10%;
+  display: inline-block;
+  width:80%;
+  height:106rpx;
+  line-height:106rpx;
+  border-bottom:1rpx solid #f5f5f5;
+  text-align: center;
+}
+.pointsDetail{
+  display: flex;
+  padding-bottom:20rpx;
+}
+.detailDJ{
+  flex: 1;
+}
+.detailWidth{
+  width:100%;
+  text-align: center;
+  margin:0 auto;
+}
+.djtext1{
+  color: #666;
+  font-size: 22rpx;
+  width:100%;
+  display: inline-block;
+}
+.djtext2{
+  color: #333;
+  font-size: 44rpx;
+}
+.djtext2 text{
+  font-size:30rpx;
+}
+.playgame{
+  background: #fff;
+  border-radius: 26rpx;
+  margin:0 34rpx;
+}
+.gameList{
+  border-bottom: 1rpx solid #f5f5f5;
+  margin:0 52rpx;
+  line-height:85rpx;
+  height:85rpx;
+  display: flex;
+  position: relative;
+}
+.gameList:last-child{
+  border-bottom:0;
+}
+.gametit{
+  font-size: 22rpx;
+  color: #666;
+  flex: 1;
+}
+.nums{
+  font-size: 32rpx;
+  color: #333;
+  margin-right:24rpx;
+  text-align: right;
+}
+.gameList image{
+  width:10rpx;
+  height:17rpx;
+  position: absolute;
+  top:36rpx;
+  right:0;
+}

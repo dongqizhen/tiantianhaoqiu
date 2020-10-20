@@ -1,0 +1,99 @@
+<!--pages/news/news.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">新消息</view></cu-custom>
+<view class="con">
+  <view class="list" wx:for="{{list}}" wx:key>
+    <image src="{{item.avatar}}" class="logo"></image>
+    <view class="list_center">
+      <view class="name">{{item.nickname}}</view>
+      <view class="name_next">
+        <text class="text1">回复</text>
+        <text class="text2">{{item.hf_nickname}}：</text>
+        <text class="text3">{{item.description}}</text>
+      </view>
+      <view class="date">{{item.createtime}}</view>
+    </view>
+    <view class="list_right">
+      <image src="../../images/order-pic2.png" class="right_img"></image>
+    </view>
+  </view>
+
+
+
+  <!-- <view class="list">
+    <image src="../../images/order-pic2.png" class="logo"></image>
+    <view class="list_center">
+      <view class="name">任珊</view>
+      <view class="name_next">
+        <text class="text1">回复</text>
+        <text class="text2">小姐：</text>
+        <text class="text3">有瓜吃，没戏看</text>
+      </view>
+      <view class="date">8月13日 下午10:03</view>
+    </view>
+    <view class="list_right">
+      <image src="../../images/order-pic2.png" class="right_img"></image>
+    </view>
+  </view>
+
+  <view class="list">
+    <image src="../../images/order-pic2.png" class="logo"></image>
+    <view class="list_center">
+      <view class="name">任珊</view>
+      <view class="name_next">
+        <text class="text1">回复</text>
+        <text class="text2">小姐：</text>
+        <text class="text3">有瓜吃，没戏看</text>
+      </view>
+      <view class="date">8月13日 下午10:03</view>
+    </view>
+    <view class="list_right">
+      <image src="../../images/order-pic2.png" class="right_img"></image>
+    </view>
+  </view>
+
+  <view class="list">
+    <image src="../../images/order-pic2.png" class="logo"></image>
+    <view class="list_center">
+      <view class="name">任珊</view>
+      <view class="name_next">
+        <text class="text1">回复</text>
+        <text class="text2">小姐：</text>
+        <text class="text3">有瓜吃，没戏看</text>
+      </view>
+      <view class="date">8月13日 下午10:03</view>
+    </view>
+    <view class="list_right">
+      <image src="../../images/order-pic2.png" class="right_img"></image>
+    </view>
+  </view>
+  <view class="list">
+    <image src="../../images/order-pic2.png" class="logo"></image>
+    <view class="list_center">
+      <view class="name">任珊</view>
+      <view class="name_next">
+        <text class="text1">回复</text>
+        <text class="text2">小姐：</text>
+        <text class="text3">有瓜吃，没戏看</text>
+      </view>
+      <view class="date">8月13日 下午10:03</view>
+    </view>
+    <view class="list_right">
+      <image src="../../images/order-pic2.png" class="right_img"></image>
+    </view>
+  </view>
+  <view class="list">
+    <image src="../../images/order-pic2.png" class="logo"></image>
+    <view class="list_center">
+      <view class="name">任珊</view>
+      <view class="name_next">
+        <text class="text1">回复</text>
+        <text class="text2">小姐：</text>
+        <text class="text3">有瓜吃，没戏看</text>
+      </view>
+      <view class="date">8月13日 下午10:03</view>
+    </view>
+    <view class="list_right">
+      <image src="../../images/order-pic2.png" class="right_img"></image>
+    </view>
+  </view> -->
+</view>

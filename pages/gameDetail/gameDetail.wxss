@@ -1,0 +1,271 @@
+/* pages/playDetail/playDetail.wxss */
+page{
+  background: #f5f5f5;
+}
+.playtopCont{
+  margin:24rpx 0 10rpx 0;
+}
+.startTime {
+  display: inline-block;
+  width: 100%;
+}
+.center{
+  display: inline-block;
+  margin-left:173rpx;
+}
+.startTime image{
+  width:32rpx;
+  height:32rpx;
+  margin-top:6rpx;
+  vertical-align: top;
+}
+.startTime text{
+  color: #666;
+  font-size: 22rpx;
+  display: inline-block;
+  vertical-align: top;
+  margin-left:18rpx;
+}
+.center view{
+  width:32rpx;
+  text-align: center;
+  display: inline-block;
+}
+.zqnum image{
+  width:26rpx;
+  height: 32rpx;
+  margin-top:8rpx;
+}
+.zqnum text{
+  color: #333;
+  font-size: 30rpx;
+}
+.playgame{
+  background: #e5e5e5;
+  border-radius: 26rpx;
+  margin:0 34rpx 32rpx 34rpx;
+  padding:0 26rpx;
+  box-shadow:0px 5px 14px 0px rgba(203,203,203,0.21);
+}
+.detailtop{
+  display: flex;
+  padding:40rpx 0 22rpx 0;
+  border-bottom:1rpx solid #f5f5f5;
+}
+.score{
+  width:105rpx;
+  text-align: center;
+  line-height:40rpx;
+  display: inline-block;
+}
+.score text:first-child{
+  color: #333;
+  font-size: 64rpx;
+  width: 100%;
+  display: inline-block;
+}
+.score text:last-child{
+  color: #666;
+  font-size: 22rpx;
+  display: inline-block;
+}
+.gamestatus{
+  display: inline-block;
+  vertical-align: top;
+  margin-left:50rpx;
+}
+.gamestatus text{
+  font-size: 46rpx;
+  color:#7966FE;
+  font-weight: bold;
+}
+.pointsDetail{
+  display: flex;
+  padding:20rpx 0 20rpx 0;
+}
+.detailDJ{
+  flex: 1;
+}
+.detailWidth{
+  width:100%;
+  text-align: center;
+  margin:0 auto;
+}
+.djtext1{
+  color: #666;
+  font-size: 40rpx;
+  width:100%;
+  display: inline-block;
+}
+.djtext2{
+  color: #999;
+  font-size: 22rpx;
+}
+.scoreTwo{
+  display: inline-block;
+  line-height:66rpx;
+  margin-left:33rpx;
+}
+.scoreTwo text{
+  color: #333;
+  font-size: 60rpx;
+}
+.personInfo{
+  text-align: center;
+  line-height:36rpx;
+  margin-top:-18rpx;
+  margin-left:80rpx;
+}
+.personInfo image{
+  width:67rpx;
+  height:67rpx;
+  border-radius: 50%;
+  border: 1rpx solid #f1f1f1;
+}
+.personInfo text{
+  font-size: 22rpx;
+  color: #666;
+  display: inline-block;
+  width:100%;
+}
+.platLists{
+  margin:30rpx 34rpx 32rpx 34rpx;
+}
+.playDetail{
+  background: #fff;
+  border-radius: 26rpx;
+  margin:0 ;
+  padding:0 15rpx;
+  box-shadow:0px 5px 14px 0px rgba(203,203,203,0.21);
+}
+.detailTit{
+  border-bottom: 1rpx solid #f5f5f5;
+  display: flex;
+  padding:28rpx 0;
+}
+.detailTit view{
+  line-height: 42rpx;
+  display: flex;
+}
+.text1{
+  color: #999;
+  font-size:24rpx;
+  margin-left:15rpx;
+}
+.text2{
+  margin:0 90rpx 0 20rpx;
+  display: inline-block;
+}
+.gameresult{
+  width:42rpx;
+  height:42rpx;
+  border-radius:7rpx;
+  color: #fff;
+  display: inline-block;
+  font-size:30rpx;
+  text-align: center;
+  margin-right: 22rpx;
+  line-height:42rpx;
+}
+.gray{
+  background:rgba(153,153,153,1);
+}
+.purple{
+  background: #7966FE;
+}
+.Q_points{
+  /* height: 196rpx; */
+  /* overflow-y: auto; */
+  overflow: hidden;
+}
+.pointsList{
+  border-bottom: 1rpx solid #f5f5f5;
+}
+.imagebox{
+  display: inline-block;
+  padding-right:20rpx;
+  margin-left:10rpx;
+}
+.imagebox image{
+  width:67rpx;
+  height:67rpx;
+  border-radius:50%;
+  margin-top:12rpx;
+  margin-bottom:5rpx;
+  border: 1rpx solid #dedede;
+}
+.billiards{
+  display: inline-block;
+  vertical-align: top;
+  padding:24rpx 14rpx 12rpx 14rpx;
+  border-right: 1rpx solid #f5f5f5;
+  padding-right:6rpx;
+  width:69%;
+  border-left: 1rpx solid #f5f5f5;
+}
+.billiards text{
+  display: inline-block;
+  width:43rpx;
+  height:43rpx;
+  border-radius:50%;
+  margin-left:14rpx;
+}
+.red{
+  background: #E60012;
+}
+.org{
+  background: #FFAC00;
+}
+.green{
+  background: #008937;
+}
+.brown{
+  background: #703821;
+}
+.blue{
+  background: #0469BE;
+}
+.pink{
+  background: #FF8CBA;
+}
+.black{
+  background: #333333;
+}
+.Q_nums{
+  display: inline-block;
+  vertical-align: top;
+  margin:18rpx 0 0 18rpx;
+}
+.Q_nums text{
+  color: #7966FE;
+  font-size: 42rpx;
+}
+.develop {
+  text-align: center;
+}
+.develop image{
+  width:17rpx;
+  height:10rpx;
+  vertical-align: top;
+  margin-top:20rpx;
+}
+.detailMain {
+  font-size: 30rpx;
+  color: #888888;
+  background: #E5E5E5;
+  padding:10rpx 20rpx;
+  border-radius: 8rpx;
+ }
+ .detailMain view{
+   padding:8rpx 0;
+ }
+ .detailMain view text{
+   display: inline-block;
+   width:100%;
+ }
+.show{
+    display:block;
+}
+.hide{
+    display:none;
+}

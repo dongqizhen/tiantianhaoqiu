@@ -1,0 +1,29 @@
+<!--pages/association/association.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">我的奖品</view></cu-custom>
+<view>
+<view>
+
+<view style="margin-top:29rpx;padding-left:34rpx;padding-right:34rpx;margin-bottom:87rpx;">
+     <view class="listContent">
+        <view class="list" wx:for="{{list}}" data-id="{{item.id}}">
+          <image src="{{pubAdress}}{{item.imgurl}}" class="list_img"></image>
+          <view class="list_right">
+            <view class="title" wx:if="{{item.name}}">{{item.name}}</view>
+            <view class="title1" wx:if="{{item.coupon_name}}">奖品：{{item.coupon_name}}</view>
+            <view class="des">
+              <view class="date">{{item.receivetime}}</view>
+              </view>
+          </view>
+          <!-- status 1 未使用   2 已使用  3  已过期 -->
+           <button class="cancel_btn" bindtap="cancel_btn" wx:if="{{item.status == 1}}" data-id="{{item.id}}">核销</button>
+           <button class="hasvoer_btn" disabled wx:elif="{{item.status == 2}}">已使用</button>
+           <button class="hasvoer_btn"disabled wx:elif="{{item.status == 3}}">已过期</button>
+        </view>
+      </view>
+      </view>
+   
+</view>
+
+
+
+</view>

@@ -1,0 +1,95 @@
+<!--pages/ballDetail/ballDetail.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">我的约球详情</view></cu-custom>
+<view class='content'>
+<view class='content_top'>
+<image src='{{publicimgUrl}}images/background.png' class='head_bg'></image> 
+
+<view class='content_center'>
+    <view class='detail_title'>{{ballDetail.title}}</view>
+    <view class='detail_type'>
+        <text wx:for="{{ballDetail.tagslist}}">{{item.name}}</text>
+    </view>
+    <view class='detail_time'>
+      <view class='begin_date'>
+        <view class='timer'>开始时间 </view>
+        <view style='display:inline-block;position:absolute;text-align:center;right:60rpx;'>
+         <text class='time'>{{time}}</text>
+        <text class='time1'>{{date}}</text>
+        </view>
+      </view>
+     <!-- fee_type    AA 1   免费   2   抢台费  3  -->
+      <view class='begin_type'>
+        <text  class='timer' style="float:left;">费用方式 </text>
+        <text class='type' wx:if="{{ballDetail.fee_type == 1}}">AA</text>
+        <text class='type' wx:elif="{{ballDetail.fee_type ==2}}">免费</text>
+        <text class='type' wx:elif="{{ballDetail.fee_type == 3}}">抢台费</text>
+      </view>
+    </view>
+    
+</view>
+<view class='detail_bottom'>
+        <view class='bottom_left'>
+          <image src='{{ballDetail.avatar}}' class='logo'></image>
+        </view>
+        <view class='bottom_center'>
+            <view>
+                {{ballDetail.nickname}}
+            </view>
+            <view>
+                <image src='../../images/phone.png' class='phone_img'></image>
+                <text class='phone_num' wx:if="{{ballDetail.mobile}}" catchtap='tel' data-mobile="{{ballDetail.mobile}}">{{ballDetail.mobile}}</text>
+                <image src='../../images/weichat.png' class='weichat_img'></image>
+                <text class='phone_num'  wx:if='{{ballDetail.wxid}}' data-wx="{{ballDetail.wxid}}" bindtap='getWxID'>{{ballDetail.wxid}}</text>
+            </view>
+        </view>
+        <view class='bottom_right' wx:if="{{ballDetail.a_count}}">
+                <image src='../../images/acitvity.png' class='acitvity_img'></image>
+                <text class='activity_text'>活动</text><text class='phone_num'>{{ballDetail.a_count}}</text>
+        </view>
+    </view>
+</view>
+  <!--  -->
+  <!--  " -->
+  <view class='activityDetail' wx:if="{{ballDetail.description}}">
+      <view class='title'>活动详情</view>
+      <view class='detail_content'>
+        {{ballDetail.description}}
+      </view>
+  </view>
+  <!-- wx:if="{{ballDetail.address}}" -->
+  <view class='activity_adress'  wx:if="{{ballDetail.address}}" bindtap='activity_adress'>
+    <image src='../../images/adress.png' class='adress_img'></image>
+    <text class='adress'>{{ballDetail.address}}</text>
+    <image src='../../images/form_check.png' class='adress_prev'></image>
+  </view>
+  <!--  -->
+  <view class='adress_bottom' style='display:none'>
+      <view class='comment_view'>
+          <image src='{{avatarUrls}}' class='bottom_logo'></image>
+          <textarea placeholder='说点什么吧' class='input_comment'  placeholder-class="placeholderStyle" value='{{comment_text}}' bindblur='getComment'></textarea>
+          <view class='comment' bindtap='publishComment'>评论</view>
+      </view>
+      <!--  -->
+      <view class='comment_list'  wx:for="{{commentList}}">
+        <view>
+            <image src='{{item.user.avatar}}' class='bottom_logo'></image>
+            <view class='list_right'>
+              <view class='name'>{{item.user.nickname}}</view>
+              <view class='date'>{{item.create_date}}</view>
+              <view class='reply' bindtap='reply' data-index="{{index}}" data-pid="{{item.id}}">回复</view>
+              <view class='reply_list'>{{item.content}}</view>
+              <view class='reply_list' wx:key wx:for="{{commentList[index].huifu}}" wx:if="{{commentList[index].huifu}}">{{item.content}}</view>
+             <!-- <view class='reply_list' wx:key wx:for="{{commentList}}" wx:else>{{item.content}}</view> -->
+             <input type='text'class='invite' placeholder='输入您想说的话' hidden='{{remarkinfo[index]}}' data-index="{{index}}" confirm-type="send"  bindconfirm="wxSearchConfirm" value='{{send_text}}' bindblur='sendComment'></input>
+            </view>
+           
+        </view>
+        
+
+      </view>
+  </view>
+  <view class='bottom_btn' style='margin-bottom:{{ isIphoneX ? 68 : 42 }}rpx;'>
+    <button class='btn_edit' data-id="{{ballDetail.id}}" bindtap='goEditDetail'>编辑</button>
+    <button class='btn_del' bindtap='btn_del'>删除</button>
+  </view>
+</view>

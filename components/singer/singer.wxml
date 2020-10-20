@@ -1,0 +1,26 @@
+<!--components/singer/singer.wxml-->
+<!--component/selector/singer.wxml-->
+<view class='singer-bg' wx:if="{{isShow}}">
+  <view class='singer-body'>
+    <!-- <view class='singer-body-name'>
+      <view class='singer-body-name-line'></view>
+      <view class='singer-body-name-txt'>{{singerContent}}</view>
+      <view class='singer-body-name-line'></view>
+    </view> -->
+    <view class='singer-body-list'>
+      <block wx:for="{{singer_list}}" wx:for-item="item" wx:key="unique">
+        <view class='list-item-choosed' wx:if="{{myoff==item.key}}" data-key='{{item.key}}' bindtap='clicktype'>
+          <view class='item-choosed-txt'>{{item.name}}</view>
+        </view>
+        <view class='list-item' data-key='{{item.key}}' bindtap='clicktype'wx:else>
+          <view class='item-txt'>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+    <!-- <view class='singer-body-kongbai'></view> -->
+    <!-- <view class='singer-body-icon'>
+      <view class='icon-left' catchtap='_singerCancel'>重置</view>
+      <view class='icon-right' catchtap='_singerConfirm'>确定</view>
+    </view> -->
+  </view>
+</view>

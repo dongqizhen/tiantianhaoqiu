@@ -1,0 +1,19 @@
+<!--pages/associationActivityList/associationActivityList.wxml-->
+<!-- <view class="top">
+<image src="../../images/sousuo(2).png" class="search_img"></image>
+<input type="text" placeholder="搜索活动" class="search"></input>
+</view>
+<!--  -->
+<!-- <view class="con">
+  <view class="list">
+    <image src="../../images/picture.png" class="list_img"></image>
+    <view class="list_right">
+      <view class="title">这里是活动名称活动名称名...</view>
+      <view class="des">
+        <view class="date">2019.09.12 | 8/25人</view>
+        <image src="../../images/fenxiang.png" class="share"></image>
+      </view>
+    </view>
+  </view>
+</view> -->
+

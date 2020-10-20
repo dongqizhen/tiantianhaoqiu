@@ -1,0 +1,12 @@
+<!--pages/aboutUs/aboutUs.wxml-->
+<!-- // 引入模板 -->
+<import src="../../utils/wxParse/wxParse.wxml"/>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">关于我们</view></cu-custom>
+<view class='content'>
+  <!-- <view class='title'>北京云顶科技有限公司</view> -->
+  <view class='discribe'>
+    <view> <template is="wxParse" data="{{wxParseData:artText.nodes}}"/></view>
+
+  </view>
+  <button bindtap="tel" class='tel' style='margin-bottom:{{ isIphoneX ? 68 : 0 }}rpx;'>联系我们：{{mobile}}</button>
+</view>

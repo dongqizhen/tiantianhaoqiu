@@ -1,0 +1,73 @@
+<!--pages/kuckyDrawDetail/kuckyDrawDetail.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">抽奖详情</view></cu-custom>
+<view class="con">
+  <!--  -->
+  <view class="con_top">
+    <view class="top_title">抽奖描述</view>
+    <view class="top_des" style="font-size:28rpx; color: rgb(202, 34, 34);">{{detail.content}}</view>
+  </view>
+  <!--  -->
+  <view class="con_top">
+    <view class="top_title">结束时间</view>
+    <view class="top_des">{{detail.endtime}}</view>
+  </view>
+  <!--  -->
+  <view class="con_top">
+    <view class="top_title">参与人数</view>
+    <view class="top_des">{{detail.bm_num}}/{{detail.num}}人</view>
+  </view>
+  <!--  -->
+  <view class="con_top">
+    <view class="top_title">奖品列表</view>
+    <view class="top_des">
+      <view class="prizeList" wx:for="{{detail.coupon}}">
+      <view wx:if="{{(index+1) == 1}}" style="text-align:center">一等奖</view>
+      <view wx:elif="{{(index+1) == 2}}" style="text-align:center">二等奖</view>
+      <view wx:elif="{{(index+1) == 3}}" style="text-align:center">三等奖</view>
+        <image src="{{pubAdress}}{{item.imgurl}}" style="display:block;width:150rpx;height:112rpx;" bindtap="LookPhotoList" data-src="{{pubAdress}}{{item.imgurl}}" data-photUrl='{{pubAdress}}{{item.imgurl}}'></image>
+        <view class="c_name">{{item.coupon_name}}</view>
+      </view>
+    </view>
+  </view>
+  <!--  --> 
+  <view class="con_top" style="margin-bottom:87rpx;">
+    <view class="top_title" style="margin-bottom:64rpx;">抽奖排名</view>
+    <view class="top_list" wx:for="{{user}}" data-index="{{index}}">
+      <view class="champion_po">
+        <image src="{{item.avatar}}" class="logo"></image>
+        <block wx:if="{{detail.is_bm == 2}}">
+          <image src="../../images/gj.png" class="champion" wx:if="{{index == 0}}"></image>
+          <image src="../../images/yjun.png" class="champion"  wx:elif="{{index == 1}}"></image>
+          <image src="../../images/jjun.png" class="champion"  wx:elif="{{index == 2}}"></image>
+        </block>
+        
+      </view>
+      <view class="name">{{item.nickname}}</view>
+      <image src="{{pubAdress}}{{item.imgurl}}" class="kukcyImg" bindtap='LookPhoto'  data-photUrl='{{pubAdress}}{{item.imgurl}}' mode="widthFix"></image>
+      <view class="list_num">{{item.num}}</view>
+    </view>    
+  
+  </view>
+  <view style="height:70rpx"></view>
+  <!--  -->
+  
+ 
+  <!--  -->
+</view>
+ <view class="btn_bottom" style='padding-bottom:{{ isIphoneX ? 68 :34 }}rpx;'>
+  <view>
+  <button class="kefu_view" open-type="share">
+<image src="{{publicimgUrl}}/images/share.png" class="kefu_img" ></image>
+<text class="kf_text">分享</text>
+</button>
+  <view style="display:inline-block;width:80%;">
+    <button class="nowEnter" bindtap="nowEnter" wx:if="{{detail.is_bm == 0}}">立即抽奖</button>
+    <button class="hasChou" wx:elif="{{detail.is_bm == 1}}">
+    <image src="../../images/wancheng.png" class="wancheng"></image>
+    已抽奖</button>
+    <button class="hasOver" wx:elif="{{detail.is_bm == 2}}">已结束</button>
+  </view>
+  </view>
+   
+  </view>

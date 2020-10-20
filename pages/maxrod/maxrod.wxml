@@ -1,0 +1,19 @@
+<!--pages/maxgame/maxgame.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">单杆最高分</view></cu-custom>
+<view class="top" style='margin-bottom:{{ isIphoneX ? 68 : 34 }}rpx;'>
+  <view wx:if="{{maxrodList.length==0}}" class="noContent">
+    <image src="../../images/no.png" class="no_img"></image>
+    <view class="no_text">暂无数据</view>
+  </view>
+  <view class="scoreList" wx:for="{{maxrodList}}" data-lid="{{item.id}}" data-roomid="{{item.room_id}}" bindtap="playgame">
+    <view class="scoremain">
+      <view class="lefttext"><text>{{item.score}}</text><text> 分</text></view>
+      <view class="righttext">
+        <view><text>记录时间</text><text>{{item.create_at}}</text></view>
+        <view><text>当局用时</text><text>{{item.use_times}}</text></view>
+        <view><text>俱 乐 部</text><text>{{item.channel_name}}</text></view>
+      </view>
+    </view>
+   
+  </view>
+</view>

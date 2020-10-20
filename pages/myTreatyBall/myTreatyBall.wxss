@@ -1,0 +1,95 @@
+/* pages/myTreatyBall/myTreatyBall.wxss */
+page{
+  background: #F5F5F5;
+}
+.content{
+  margin-bottom: 50rpx
+}
+.list{
+  margin:37rpx 33rpx 0 33rpx;
+  background: #fff;
+  box-shadow:0px 5rpx 14rpx 0px rgba(203,203,203,0.21);
+  border-radius:27rpx;
+  position: relative
+}
+.title{
+  width:431rpx;
+  font-size:32rpx;
+  font-weight:normal;
+  color:rgba(51,51,51,1);
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  padding: 90rpx 38rpx 38rpx 38rpx;
+}
+.date{
+  font-size:21rpx;
+  color: #fff;
+  font-weight:600;
+  background:rgba(121,102,254,1);
+  box-shadow:0px 5rpx 5rpx 0px rgba(132,105,244,0.23);
+  border-bottom-left-radius:27rpx;
+  border-bottom-right-radius:27rpx;
+  padding: 16rpx 48rpx;
+  position: absolute;
+  left: 24%;
+  top: 0
+}
+.list_bottom{
+  padding-left: 38rpx;
+  padding-bottom: 31rpx;
+  position: relative;
+}
+.list_bottom text{
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(121,102,254,1);
+  border-radius:7rpx;
+  color:#7966FE;
+  padding:4rpx 8rpx;
+  font-size:20rpx;
+  margin-right:10rpx;
+  display:inline-block;
+  margin-bottom:10rpx;
+
+}
+.fee_type{
+  background:rgba(22,160,41,1) !important;
+color:#fff !important;
+border-radius:7rpx;
+padding:4rpx 8rpx !important;
+font-size:20rpx;
+margin-right:10rpx;
+display:inline-block;
+margin-bottom:10rpx;
+border: none !important;
+}
+.list_right{
+  float: right;
+  padding-right: 33rpx;
+  position: absolute;
+  right: 0;
+  bottom: 35rpx;
+}
+.message_img{
+  width: 37rpx;
+  height: 34rpx;
+}
+.bianji_img{
+  width:32rpx;
+  height:36rpx;
+  /* margin-right:40rpx; */
+}
+.right_circle{
+  position: absolute;
+  width:16rpx;
+  height:16rpx;
+  background:rgba(255,66,126,1);
+  border-radius:50%;
+  top: 0;
+  right: 28rpx;
+}
+.noList{
+  text-align: center;
+  line-height: 200rpx;
+  font-size: 30rpx;
+}

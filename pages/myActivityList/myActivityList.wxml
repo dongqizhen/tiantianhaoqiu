@@ -1,0 +1,90 @@
+<!--pages/association/association.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">我的活动</view></cu-custom>
+<view>
+<!--  -->
+<!-- <view class="top">
+<image src="../../images/sousuo(2).png" class="search_img"></image>
+<input type="text" placeholder="搜索活动" class="search"></input>
+</view> -->
+<!--  -->
+<!--index.wxml-->
+<!-- <view class="container"> -->
+<view>
+ 
+<view class='content_index'>
+  <view class="swiper-tab">  
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">
+     <view class="tab_text">我参加的</view>
+   </view> 
+    <!--{{date2}}  -->
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">
+      <view class="tab_text">我发布的</view>
+    </view>  
+    
+    
+  </view>
+</view>
+
+</view>
+<view style="margin-top:29rpx;padding-left:34rpx;padding-right:34rpx;margin-bottom:87rpx;">
+<view class = "{{currentTab == 0 ? 'show':'hidden'}}" >
+     <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='height:100%;white-space: nowrap;padding-bottom:30rpx;' overflow="{{hidden}}">
+     <view class="listContent">
+        <view class="list" wx:for="{{list}}" bindtap="toDetail" data-id="{{item.id}}">
+          <image src="{{item.image}}" class="list_img"></image>
+          <view class="list_right">
+            <view class="title">{{item.title}}</view>
+            <view class="des">
+              <view class="date">{{item.starttime}} | {{item.bm_num}}/{{item.num}}人</view>
+              <image src="../../images/fenxiang.png" class="share" catchtap="share" data-billId="{{item.id}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>   -->
+    <!-- 我是呵呵 -->  
+   <!-- <swiper-item catchtouchmove='catchTouchMove' style="height:100%;">  -->
+   <view class = "{{currentTab == 1 ? 'show':'hidden'}}" >
+     <view class="noContent" wx:if="{{myList.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+     <scroll-view scroll-y style='white-space: nowrap;height:100%;'overflow="{{hidden}}"> 
+        <view class="listContent">
+        <view class="list" wx:for="{{myList}}" bindtap="toDetailMY" data-id="{{item.id}}" data-channelid = "{{item.channel_id}}">
+          <image src="{{item.image}}" class="list_img"></image>
+          <view class="list_right">
+            <view class="title">{{item.title}}</view>
+            <view class="des">
+              <view class="date">{{item.starttime}} | {{item.bm_num}}/{{item.num}}人</view>
+              <!-- <image src="../../images/edit.png" class="edit_img" catchtap="edit" data-id="{{item.id}}" data-channelid = "{{item.channel_id}}"></image> -->
+              <image src="../../images/fenxiang.png" class="share" catchtap="share" data-billId="{{item.id}}"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      </scroll-view>
+      </view>
+    <!-- </swiper-item>  -->
+</view>
+<!--  -->
+
+
+<!-- 海报 -->
+ <!-- 分享 -->
+<view class="shopbomb" hidden="{{showModel}}" catchtouchmove="true">
+  <view class="shopmains">
+    <painter palette="{{template}}" bind:imgOK="onImgOK" />
+    <button class="posterbtn" bindtap='download'>保存图片，分享到朋友圈</button> 
+    <image src="../../images/p3.png" class="p3" bindtap="close"></image>
+  </view>
+ 
+</view>
+</view>
+    <!--  -->

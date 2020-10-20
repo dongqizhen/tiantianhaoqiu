@@ -1,0 +1,102 @@
+<!--pages/publishkKuckyDraw/publishkKuckyDraw.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}" class="every" style='height:{{height}}'><view slot="content">发布抽奖</view></cu-custom>
+<scroll-view scroll-y style="height:{{wheight-40}}px" hidden="{{isshowModel}}">
+<view class="con">
+  <!--  -->
+  
+  <view>
+    <view class="des">抽奖描述</view>
+    <textarea class="textarea" placeholder="请输入您抽奖的奖励机制"  bindinput="getContent" placeholder-style=" color: rgb(202, 34, 34);" value="{{content}}" style="font-size:26rpx;"></textarea>
+  </view>
+  <!--  -->
+  <view>
+    <view class="des">结束时间</view>
+  </view>
+  <!--  -->
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="pubballinfo">
+      <view class='form_view'>日期</view>
+      <picker mode="date" value="{{date}}" class='form_input' bindchange="bindDateChange" placeholder-class="placeholderStyle">
+        <view class="picker">
+          {{date}}
+        </view>
+      </picker>
+      <image src='../../images/form_check.png' class='form_check'></image>
+    </view>
+  <view class="pubballinfo">
+      <view class='form_view'>时间</view>
+      <picker mode="time" value="{{time}}" bindchange="bindTimeChange" class='form_input' placeholder-class="placeholderStyle">
+        <view class="picker">
+          {{time}}
+        </view>
+      </picker>
+      <image src='../../images/form_check.png' class='form_check'></image>
+    </view>
+    
+
+  <!--  -->
+  <view class="des">参与人数</view>
+  <view style="line-height:90rpx;">
+      <view class='form_view' style="display:inline-block">最大参与人数</view>
+      <view class="view_input">
+      <input type="number" placeholder="请输入" class='number'  value="{{num}}" bindblur="getNum"></input>
+      <text class="text1">人</text>
+      </view>
+
+    </view>
+    <!--  -->
+    <view class="prizeSize">
+      <view class="prizeSize_text">奖品设置（可引用模板奖品）</view>
+      <view class="prizeSize_view">
+        <view class="num_text" hidden="{{prizeNum1}}">
+          <view>第一名</view>
+          <view style="width:100%;text-align:center" catchtap="growthValue" data-idx="1">
+            <image src="../../images/addcricle.png" class="addCircle" hidden="{{hidden1}}"></image>
+            <image src="../../images/close_cricle.png" class="addCircle" hidden="{{hidden_1}}" catchtap="closeImg" data-index='1'></image>
+          </view>
+          <image src="{{src1}}" class="num_img"></image>
+        </view>
+        <view class="num_text"  hidden="{{prizeNum2}}">
+          <view>第二名</view> 
+          <view style="width:100%;text-align:center" catchtap="growthValue" data-idx = "2">
+              <image src="../../images/addcricle.png" class="addCircle" hidden="{{hidden2}}"></image>
+               <image src="../../images/close_cricle.png" class="addCircle" hidden="{{hidden_2}}" data-index='2' catchtap="closeImg" ></image>
+            </view>
+          <image src="{{src2}}" class="num_img"></image>
+        </view>
+        <view class="num_text"  hidden="{{prizeNum3}}">
+          <view>第三名</view>
+          <view style="width:100%;text-align:center" catchtap="growthValue" data-idx = "3">
+           <image src="../../images/addcricle.png" class="addCircle" hidden="{{hidden3}}"></image>
+            <image src="../../images/close_cricle.png" class="addCircle" hidden="{{hidden_3}}" data-index='3' catchtap="closeImg" ></image>
+          </view>
+          <image src="{{src3}}" class="num_img"></image>
+         </view>
+      </view>
+    </view>
+  <!--  -->
+  <button class="publish"formType="submit" disabled="{{disabled}}">发布抽奖</button>
+    </form>
+
+
+    
+
+  <!--  -->
+</view>
+</scroll-view>
+<view class="shopbomb" hidden="{{showModel}}">
+  <view class="shopmains">
+    <view style="background:#fff" class="growth">
+    <view class="growth_text">
+      <view class="growth_textView {{idx==item.id?'selected':''}}" wx:for="{{couponList}}" wx:key data-id="{{item.id}}" data-index="{{index}}" catchtap="clickCoupon" data-sel="{{item.isSelect}}" data-src="{{pubAdress}}{{item.img_url}}">
+        <image src="{{pubAdress}}{{item.img_url}}"></image>
+        <view class="img_des">{{item.name}}</view>
+      </view>
+      
+    </view>
+    <button catchtap="sure_btn" class="sure_btn">确定</button>
+    </view>
+    <image src="../../images/p3.png" class="p3" bindtap="close"></image>
+  </view>
+ 
+</view>

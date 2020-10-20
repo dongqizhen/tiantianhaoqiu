@@ -1,0 +1,38 @@
+<!--pages/playDetail/playDetail.wxml-->
+<wxs module="dateUtil" src="../../wxs/formatDate.wxs"></wxs>
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">得分明细</view></cu-custom>
+<view class="top" style="margin-top:30rpx;" style='margin-bottom:{{ isIphoneX ? 68 : 34 }}rpx;'>
+
+<view class="platLists" wx:for="{{botInfo}}" wx:key="index" wx:for-index="index" data-index="{{index}}">
+  <view class="playDetail">
+    <view class="detailTit">
+      <view class="text2" wx:if="{{roominfo.type==2}}">
+        <text class="gameresult gray" wx:if="{{item.my_score<item.rival_score}}">负</text>
+        <text class="gameresult purple" wx:if="{{item.my_score>item.rival_score}}">胜</text>
+        <text class="gameresult purple" wx:if="{{item.my_score==item.rival_score}}">平</text>
+        <text>{{item.my_score}} : {{item.rival_score}}</text>
+      </view>
+      <view class="text1"><text>用时: {{item.playtime}}</text></view>
+    </view>
+    <view wx:if="{{item.get_plays.length==0}}"></view>
+    <view class="Q_points" style="height:{{item.height}}rpx" data-index="{{index}}" >
+      <view class="pointsList" wx:for="{{item.plays_done}}" wx:key="index" wx:for-item="itemballs" wx:if="{{item.plays_done.length!=0}}">
+        <view class="imagebox"><image src="{{itemballs.player}}"></image></view>
+        <view class="billiards">
+          <text wx:for="{{itemballs.plays}}" wx:for-item="itemball" class="{{itemball.ball}}"></text>
+        </view>
+        <view class="Q_nums"><text>{{itemballs.score}}</text></view>
+      </view>
+    </view>
+    <view class="develop" bindtap="toChange" data-index="{{index}}" data-id="{{item.id}}"><image src="{{item.height ? '../../images/jtbottom.png' : '../../images/jttop.png'}}"></image></view>
+  </view>
+  <!-- <view class="detailMain" hidden="{{item.hidden}}">
+      <view>得分明细显示</view>
+      <view>
+        <text wx:for="{{item.plays_log}}" wx:for-item="itemlog">{{itemlog}}</text>
+      </view>
+    </view> -->
+</view>
+
+
+</view>

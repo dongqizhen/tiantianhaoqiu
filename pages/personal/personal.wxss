@@ -1,0 +1,263 @@
+/* pages/personal/personal.wxss */
+.head_bg{
+  width: 100%;
+  height:367rpx
+}
+.content_top{
+  position: relative;
+}
+.logo{
+  width:132rpx;
+  height:133rpx;
+  border-radius:50%;
+}
+.userInfo{
+  height: 88rpx;
+  line-height: 88rpx;
+  background: rgb(4, 190, 2);
+  color: #fff;
+  margin: 5%;
+}
+.top{
+  position: absolute;
+  top: 117rpx;
+  left: 67rpx;
+  width: 100%
+}
+.top_center{
+  display: inline-block;
+  vertical-align: top;
+  padding-left: 33rpx;
+  /* padding-top: 25rpx; */
+}
+.name{
+  font-size:40rpx;
+  font-weight:normal;
+  color:rgba(255,255,255,1);
+  line-height:24px;
+}
+.phone_img{
+  width:16rpx;
+  height:23rpx;
+}
+.phone_num{
+  font-size:27rpx;
+  font-weight:normal;
+  color:rgba(255,255,255,1);
+  padding-left: 13rpx
+}
+.top_right{
+  display: inline-block;
+}
+.content_center{
+  margin-left: 35rpx;
+  margin-right: 34rpx;
+}
+.right_pe{
+  width: 10rpx;
+  height: 17rpx;
+  position: absolute;
+  top: 44rpx;
+  right: 136rpx;
+}
+.notice_img{
+  width:47rpx;
+  height:37rpx;
+  vertical-align: middle;
+}
+.about_img{
+  width: 35rpx;
+  height: 39rpx;
+  vertical-align: middle
+}
+.fujin{
+  width:45rpx;
+  height:34rpx;
+  vertical-align: middle
+}
+.list{
+  border-bottom: 3rpx solid #F5F5F5;
+  padding-bottom: 33rpx;
+  padding-top: 33rpx
+}
+.list:last-child{
+  margin-bottom: 100rpx;
+}
+.circle{
+  width:16rpx;
+  height:16rpx;
+  background:rgba(255,66,126,1);
+  border-radius:50%;
+  display: inline-block;
+  float: right;
+  margin-top: 17rpx;
+}
+.circle1{
+   width:16rpx;
+  height:16rpx;
+  background:#fff;
+  border-radius:50%;
+  display: inline-block;
+  float: right;
+  margin-top: 17rpx;
+}
+.notice_text{
+  padding-left: 23rpx;
+  font-size:32rpx;
+  color:rgba(51,51,51,1);
+  /* font-weight: bold; */
+  }
+  .about_text{
+    padding-left: 26rpx;
+    font-size:32rpx;
+    color:rgba(51,51,51,1);
+  /* font-weight: bold; */
+  }
+  .yunxu_text{
+    padding-left: 25rpx;
+    font-size:32rpx;
+    color:rgba(51,51,51,1);
+    display: inline-block;
+  }
+/* .wx-switch-input{width:42px !important;height:20px !important;}
+.wx-switch-input::before{width:41px !important;height: 20px !important;}
+.wx-switch-input::after{width: 19px !important;height: 18px !important;} */
+switch{
+    zoom: .8;
+}
+.text_bottom{
+  color: #7a7a7a;
+  font-size: 26rpx;
+  padding-left: 70rpx
+}
+.star{
+  display: inline-block;
+  background: #FFD800;
+  padding: 5rpx 25rpx;
+  /* height: 35rpx; */
+  line-height: 35rpx;
+  border-radius: 35rpx;
+  margin-left: 27rpx;
+}
+.star_img{
+  width: 28rpx;
+  height: 27rpx;
+  /* vertical-align: middle; */
+  float: left;
+  margin-top: 8rpx;
+}
+.star_text{
+  color:#221815;
+  font-size: 19rpx;
+  padding-left: 10rpx;
+  float: left;
+  margin-top: 4rpx;
+}
+
+.text_one{
+  font-size:27rpx;
+  color:rgba(255,255,255,1);
+}
+.text_one:nth-child(2){
+  padding-left: 15rpx;
+  display: inline-block;
+}
+.qu_img{
+  width: 30rpx;
+  height: 30rpx;
+  padding-left: 25rpx;
+  vertical-align: middle;
+}
+.my1{
+  width: 40rpx;
+  height: 39rpx;
+  vertical-align: middle;
+}
+.my2{
+ width: 39rpx;
+ height: 39rpx;
+ vertical-align: middle; 
+}
+.my3{
+  width: 38rpx;
+  height: 39rpx;
+  vertical-align: middle
+}
+.my4{
+  vertical-align: middle;
+  width: 40rpx;
+  height: 37rpx;
+}
+.my5{
+  width: 35rpx;
+  height: 39rpx;
+  vertical-align: middle;
+}
+.shopbomb{
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:101;
+}
+.shopmains{
+  width:90%;
+  /* background:#fff; */
+  position:fixed;
+  top: 70%;
+  margin-left: 5%;
+  /* left:50%;
+  margin-left:-333rpx; */
+  margin-top: -538rpx;
+  border-radius: 27rpx;
+  /* z-index: 9999 */
+}
+.shopmains1{
+  width:100%;
+  background:#fff;
+  position:fixed;
+  bottom:0;
+}
+.close{
+  width:32rpx;
+  height:32rpx;
+  float:right;
+  margin-top:25rpx;
+  margin-right:20rpx;
+}
+.posterbtn{
+  width: 90%;
+  margin-left: 5%;
+height:87rpx;
+background:rgba(121,102,254,1);
+box-shadow:0px 10rpx 16rpx 0px rgba(132,105,244,0.4);
+border-radius:43rpx;
+line-height: 87rpx;
+color: #fff;
+margin-top: 49rpx
+}
+.p3{
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -20rpx;
+  margin-top: 33rpx;
+}
+.growth{
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 30rpx;
+  font-size: 24rpx;
+  line-height: 30rpx;
+}
+.growth_text{
+  line-height:40rpx; 
+  font-size: 28rpx;
+}
+.navigator-hover{
+  background: none;
+  opacity:1
+}

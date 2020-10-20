@@ -1,0 +1,82 @@
+<!--pages/publishBall/publishBall.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">创建活动</view></cu-custom>
+<view class='content' style="padding-bottom:50rpx;margin-top:48rpx">
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class='form_view'>活动照片</view>
+<!-- // 利用绝对定位 隐藏canvas -->
+<canvas canvas-id="photo_canvas" style="width:{{canvasWidth}}px;height:{{canvasHeight}}px;position: absolute;left:-1300px;top:-1300px;"></canvas>
+<view class="image_content">
+ <view class='image' wx:for="{{picPaths}}">
+  <image class="moment_img" src="{{item}}"></image>
+  <view class="del" bindtap="delImg" data-src="{{item}}"  data-idx="{{index}}">
+    <image src="../../images/deltel.png" class="del_img"></image>
+  </view>
+ </view>
+ <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+  <image bindtap="chooseimage" class="moment_img" src='../../images/add.png'></image>
+  <!-- <view class="publish_img" bindtap="chooseimage">+</view> -->
+ </view>
+ </view>
+<view class="pubballinfo">
+  <view class='form_view'>活动名称<text class='must_text'>*</text></view>
+    <input type='text' value='{{title}}' bindinput='changeTitle' placeholder='请输入活动名称' class='form_input1' placeholder-class="placeholderStyle"  style='font-size:26rpx !important;'></input>
+</view>
+<!--  -->
+  <view class="pubballinfo">
+  <view class='form_view'>开始日期<text class='must_text'>*</text></view>
+  
+  <picker mode="date" value="{{date}}" class='form_input'  start="{{date}}" end="2019-12-30" bindchange="bindDateChange" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+  <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+ <view class="pubballinfo">
+  <view class='form_view'>开始时间<text class='must_text'>*</text></view>
+  
+  <picker mode="time" value="{{time}}" class='form_input' bindchange="bindTimeChange" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{time}}
+    </view>
+  </picker>
+  <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+ <view class="pubballinfo">
+  <view class='form_view'>结束时间<text class='must_text'>*</text></view>
+  
+  <picker mode="time" value="{{time2}}" class='form_input' bindchange="bindTimeChange2" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{time2}}
+    </view>
+  </picker>
+  <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+<view class="pubballinfo">
+  <view class='form_view'>活动地点<text class='must_text'>*</text></view>
+  
+   <input type='text' placeholder='定位活动地点' class='form_input' placeholder-class="placeholderStyle"  value="{{address}}" disabled='true' bindtap='chooseMapViewTap'></input>
+   <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+<!-- <view class="pubballinfo"> -->
+   <view style="line-height:90rpx;">
+      <view class='form_view' style="display:inline-block;margin-top:30rpx;">最大参与人数</view>
+      <view class="view_input">
+      <input type="number" placeholder="请输入" class='number' bindinput="getNum">{{maxNum}}</input>
+      <text class="text1">人</text>
+      </view>
+
+    </view>
+<view>
+  <view class='form_view' style='margin-top:36rpx;'>活动详情<text style='float:right'>{{currentWordNumber}}/{{max}}</text></view>
+  
+   <textarea class="textarea" bindinput='bindinput10' value="{{remark}}" minlength="{{min}}" maxlength="{{max}}" class='form_area' placeholder='描述一下您的活动或要求吧...'  placeholder-class="placeholderStyle" ></textarea>
+</view>
+<button class='publishBall'formType="submit" style='margin-bottom:{{ isIphoneX ? 168 : 100 }}rpx;' disabled="{{disabled}}">发布</button>
+</form>
+</view>
+

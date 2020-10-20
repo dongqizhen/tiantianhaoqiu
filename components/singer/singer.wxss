@@ -1,0 +1,169 @@
+/* component/selector/singer.wxss */
+ 
+/* .singer-bg {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.5);
+} */
+ 
+/* .singer-bg .singer-body {
+  min-width: 100%;
+  width: 100%;
+  height: 968rpx;
+  max-height: 968rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 20px 20px 0px 0px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+} */
+ 
+.singer-bg .singer-body .singer-body-name {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60rpx;
+  margin-bottom: 50rpx;
+}
+ 
+.singer-bg .singer-body .singer-body-name .singer-body-name-line {
+  width: 260rpx;
+  border-bottom: 2rpx solid rgba(240, 240, 240, 1);
+}
+ 
+.singer-bg .singer-body .singer-body-name .singer-body-name-txt {
+  height: 48rpx;
+  font-size: 34rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  line-height: 48rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+ 
+.singer-bg .singer-body .singer-body-list {
+  /* width: 100%; */
+  /* max-height: 650rpx; */
+  /* display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  /* padding: 0rpx 10rpx 0rpx 40rpx; */
+  /* overflow: auto;
+  border:1rpx solid #FCC535;
+  border-radius: 8rpx; */
+}
+ 
+.singer-bg .singer-body .singer-body-list .list-item-choosed {
+ width:213rpx;
+  /* height:67rpx; */
+  background:rgba(255,255,255,1);
+  border:1rpx solid #7966FE;
+  border-radius:33rpx;
+  text-align: center;
+  /* line-height: 69rpx; */
+  margin-right: 33rpx;
+  color: #7966FE;
+  display: inline-block;
+  font-size: 21rpx;
+}
+ 
+.singer-bg .singer-body .singer-body-list .list-item-choosed .item-choosed-txt {
+  font-size: 21rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  line-height: 69rpx;
+  color: 000;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  /* width: 172rpx; */
+  /* height: 71rpx; */
+}
+ 
+/**/
+ 
+.singer-bg .singer-body .singer-body-list .list-item {
+  width:213rpx;
+  height:67rpx;
+  background:rgba(255,255,255,1);
+  border:1rpx solid rgba(222,222,222,1);
+  border-radius:33rpx;
+  text-align: center;
+  line-height: 69rpx;
+  display: inline-block;
+  margin-right: 33rpx;
+  color: #999999;
+  font-size: 21rpx;
+}
+ /* .singer-bg .singer-body .singer-body-list .list-item:last-child{
+   border-right: none
+ } */
+.singer-bg .singer-body .singer-body-list .list-item  .item-txt {
+  font-size: 21rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(51, 51, 51, 1);
+  line-height: 69rpx;
+  display: -webkit-box;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+ 
+.singer-bg .singer-body .singer-body-kongbai {
+  width: 100%;
+  height: 120rpx;
+}
+ 
+.singer-bg .singer-body .singer-body-icon {
+  width: 100%;
+  height: 110rpx;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  z-index: 9999999999;
+  background: rgba(255, 255, 255, 1);
+}
+ 
+.singer-bg .singer-body .singer-body-icon .icon-left {
+  width: 374rpx;
+  height: 110rpx;
+  background: rgba(0, 89, 179, 0.1);
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(0, 89, 179, 1);
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ 
+.singer-bg .singer-body .singer-body-icon .icon-right {
+  width: 374rpx;
+  height: 110rpx;
+  background: rgba(0, 89, 179, 1);
+  font-size: 36rpx;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

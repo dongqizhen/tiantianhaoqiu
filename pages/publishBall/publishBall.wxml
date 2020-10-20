@@ -1,0 +1,93 @@
+<!--pages/publishBall/publishBall.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">发布约球</view></cu-custom>
+<view class='content' style="padding-bottom:50rpx;">
+<form bindsubmit="formSubmit" bindreset="formReset">
+<view class="pubballinfo">
+  <view class='form_view'>活动名称<text class='must_text'>*</text></view>
+    <input type='text' value='{{title}}' bindinput='changeTitle' placeholder='请输入活动名称' class='form_input1' placeholder-class="placeholderStyle"  style='font-size:26rpx !important;'></input>
+</view>
+<!--  -->
+  <view class="pubballinfo">
+  <view class='form_view'>活动日期<text class='must_text'>*</text></view>
+  
+  <picker mode="date" value="{{date}}" class='form_input'  start="{{date}}" end="2019-12-30" bindchange="bindDateChange" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{date}}
+    </view>
+  </picker>
+  <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+ <view class="pubballinfo">
+  <view class='form_view'>活动时间<text class='must_text'>*</text></view>
+  
+  <picker mode="time" value="{{time}}" class='form_input' bindchange="bindTimeChange" placeholder-class="placeholderStyle">
+    <view class="picker">
+      {{time}}
+    </view>
+  </picker>
+  <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+<view class="pubballinfo">
+  <view class='form_view'>活动地址<text class='must_text'>*</text></view>
+  
+   <input type='text' placeholder='定位我的活动地址' class='form_input' placeholder-class="placeholderStyle"  value="{{address}}" disabled='true' bindtap='chooseMapViewTap'></input>
+   <image src='../../images/form_check.png' class='form_check'></image>
+</view>
+<!--  -->
+<view class="pubballinfo">
+  <view class='form_view'>费用方式<text class='must_text'>*</text></view>
+  
+       <!-- <picker bindchange="bindPickerChange" value="{{objectIndex}}" range="{{objectArray}}" range-key="name" class='form_input'>
+    <view class="picker">
+       {{objectArray[objectIndex].name}}
+    </view>
+  </picker> -->
+  <picker bindchange="bindPickerChange" name = "teamId" class='form_input' value='{{pickerIndex}}' range="{{schoolList}}">
+    <view class="picker">
+       {{schoolList[pickerIndex]}}
+    </view>
+  </picker> 
+  <image src='../../images/form_check.png' class='form_check'></image>
+  <!-- //其中range为数据源，value为下标索引，bindchange为change改变事件 -->
+
+</view>
+<!--  -->
+<view>
+<view class='form_view' style='margin-top:36rpx;'>活动内容</view>
+<view wx:for="{{tagsList}}" data-id="{{item.id}}" data-index = "{{index}}" class="checkbox {{item.checked?'checkedActive':''}}" bindtap='userCheck'>
+    {{item.name}}
+</view>
+</view>
+<!--  -->
+<view class="pubballinfo">
+  <view class='form_view'>昵称<text class='must_text'>*</text></view>
+  
+   <input type='text' placeholder="请输入自己的昵称" class='form_input' placeholder-class="placeholderStyle" value='{{nickname}}'  bindinput='changeNickName'></input>
+   <image src='../../images/colse.png' class='form_colse' bindtap='del_nickName'></image>
+</view>
+<!--  -->
+<view class="pubballinfo">
+  <view class='form_view'>电话<text class='must_text'>*</text></view>
+  
+   <input type='number' placeholder='请输入联系方式' class='form_input' placeholder-class="placeholderStyle" value='{{mobile}}' bindinput='changePhone'></input>
+   <image src='../../images/colse.png' class='form_colse' bindtap='del_phone'></image>
+</view>
+<!--  -->
+<view class="pubballinfo">
+  <view class='form_view'>微信号</view>
+  
+   <input type='text' placeholder='请输入微信号' class='form_input' placeholder-class="placeholderStyle" value='{{wxid}}' bindinput="changeWeichat"></input>
+   <image src='../../images/colse.png' class='form_colse' bindtap='del_weichat'></image>
+</view>
+<!--  -->
+<view>
+  <view class='form_view' style='margin-top:36rpx;'>活动详情<text style='float:right'>{{currentWordNumber}}/{{max}}</text></view>
+  
+   <textarea class="textarea" bindinput='bindinput10' value="{{remark}}" minlength="{{min}}" maxlength="{{max}}" class='form_area' placeholder='描述一下您的活动或要求吧...'  placeholder-class="placeholderStyle" ></textarea>
+</view>
+<button class='publishBall'formType="submit" style='margin-bottom:{{ isIphoneX ? 68 : 29 }}rpx;' disabled="{{disabled}}">发布约球</button>
+</form>
+</view>
+

@@ -1,0 +1,92 @@
+/* pages/publishBall/publishBall.wxss */
+.content{
+  padding-left: 36rpx;
+  padding-right: 36rpx;
+  width:auto;
+}
+.form_view{
+  color: #333333;
+  font-size: 26rpx;
+  font-weight:600;
+}
+.must_text{
+  color: #FF0000;
+  padding-left: 15rpx;
+}
+.placeholderStyle{
+  color: #999;
+  font-size: 20rpx
+}
+.form_input{
+  border-bottom: 3rpx solid #F5F5F5;
+  font-size: 20rpx;
+  color: #333;
+  padding-top: 25rpx;
+  padding-bottom: 25rpx;
+}
+.form_check{
+  width: 10rpx;
+  height: 17rpx;
+  float: right;
+  margin-top: 36rpx;
+}
+.checkbox{
+  display:inline-block;
+  margin:20rpx 10rpx 10rpx 0rpx;
+  padding:22rpx 49rpx;
+  background:#eee;
+  background:#F5F5F5;
+  border-radius:33rpx;
+  color: #666666;
+  font-size: 24rpx;
+}
+.checkedActive{
+  background:#7966FE;
+  color:#fff;
+}
+.form_colse{
+  width: 24rpx;
+  height: 24rpx;
+   float: right;
+  margin-top: 36rpx;
+}
+.form_area{
+  height:272rpx;
+  background:rgba(245,245,245,1);
+  border-radius:27rpx;
+  width: 95%;
+  padding: 20rpx;
+  margin-top: 38rpx;
+  color: #999999
+}
+.publishBall{
+  width: 100%;
+  height:87rpx;
+  background:rgba(121,102,254,1);
+  box-shadow:0px 10rpx 16rpx 0px rgba(132,105,244,0.4);
+  border-radius:43rpx;
+  color: #fff;
+  margin-top: 25rpx;
+  margin-bottom: 29rpx;
+}
+.sign-setting-border{
+margin-left: 2%;
+width:22%;
+float: left;
+height: 30px;
+line-height: 30px;
+border-radius: 20px;
+background-color: #ffffff;
+color: #999999;
+font-size: 14px;
+text-align: center;
+font-family: -apple-system;
+margin-bottom:15px;
+border:1px solid #DBDBDB;
+ 
+}
+.selected{
+  background-color: #FFA404;
+  color: rgba(255, 255, 255, 1);
+  border:1px solid #FFA404;
+}

@@ -1,0 +1,96 @@
+<!-- 仿微信朋友圈 -->
+<!-- <view class='news'>
+  <view>
+    <image src="../../images/wxdiscuss.png" class="news_img"></image>
+  </view>
+  <view></view>
+</view> -->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">更多</view></cu-custom>
+<view class="topNews" >
+  <view class="new" bindtap="toNews" wx:if="{{num.new_num !=0}}">
+  <view class="news_view">
+  <image src="{{num.new_avatar}}" class="news_view_img"></image>
+  <text class="news_text">{{num.new_num}}条新消息</text>
+  <image src="../../images/next.png" class="next_img"></image>
+  </view>
+   
+  </view>
+  <view class="photo_top" bindtap="publish" data-channelid="{{id}}">
+    <image src="../../images/photo.png" class="photo_img"></image>
+  </view>
+</view>
+<scroll-view class='page'>
+  <!-- 列表 -->
+   <view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+  <view class='CircleList' wx:for='{{list}}' wx:for-index="idx" data-index="{{idx}}">
+    <!-- 头像、昵称、内容 -->
+    <view class='body-view'>
+      <!-- 头像 -->
+      <view class='left-view'>
+        <image class='user-icon' src='{{item.avatar}}'></image>
+      </view>
+      <view class='right-view'>
+        <!-- 昵称 -->
+        <view class='user-name-view'>
+          <label class='user-name'>{{item.nickname}}</label>
+          <!-- <label wx:if="{{userId == item.user_id}}" style="float:right;font-size:24rpx" catchtap="deleteA" data-sid="{{item.id}}">删除</label> -->
+        </view>
+        <!-- 内容 -->
+        <view class='user-content-view'>
+          <text class='user-content'>{{item.content}}</text>
+        </view>
+        <!-- 图片 -->
+        <view class='photo-view' wx:if="{{item.image.length != 0}}">
+          <view class='photo' wx:for="{{item.image}}" wx:for-item="cell" style='width:{{photoWidth}}px;height:{{photoWidth}}px'>
+            <image style='width:{{photoWidth}}px;height:{{photoWidth}}px' bindtap='LookPhoto'  data-photUrl='{{item.image}}' data-src="{{cell}}" src="{{cell}}"></image>
+          </view>
+        </view>
+        
+        <!-- 点赞 -->
+        <view class='zan-view'>       
+          <!-- 点赞 -->
+          <view bindtap="zanLeft" style="display:inline-block" data-aid="{{item.id}}">
+          <image  class='trigon' src='../../images/zan.png' wx:if="{{item.is_zan == 0}}"></image>
+          <image  class='trigon' src='../../images/zan1.png' wx:if="{{item.is_zan == 1}}"></image>
+          <text class="trigon_num" wx:if="{{item.zan.length >=5}}">{{item.zan/10000}}万</text>
+          <text class="trigon_num" wx:else>{{item.zan}}</text>
+          </view>
+          
+           <view style="display:inline-block" bindtap="reply" data-index="{{idx}}" data-aid="{{item.id}}">
+            <image src="../../images/xinxi.png" class="xinxi"></image>
+            <text class="xinxi_num" wx:if="{{item.comments.length >=5}}">{{item.comments/10000}}万</text>
+            <text class="xinxi_num" wx:else>{{item.comments}}</text>
+          </view>
+          <input type='text' class='invite' placeholder='输入您想说的话' hidden='{{remarkinfo[idx]}}' data-index="{{idx}}" confirm-type="send"  bindconfirm="wxSearchConfirm" value='{{send_text}}' bindblur='sendComment' ></input>
+          <view class='zan-bg-view'>
+            <view class='zan-user-view' wx:for='{{zanSource}}' wx:key>
+              <label bindtap='TouchZanUser' data-name='{{item}}' class='zan-user'>{{item}},</label>
+            </view>
+          </view>
+          <view class='line'></view>
+          <!-- 评论 -->
+          <view class='discuss-view'>
+            <view class='discuss'  wx:for="{{item.comment}}" wx:for-item="cell" data-pid="{{cell.id}}" bindtap="replayTwo" data-idx="{{idx}}" data-aid="{{item.id}}" data-index="{{index}}">
+              <label bindtap='TouchZanUser' data-name='{{cell.nickname}}' class='discuss-user' wx:if="{{cell.pid == 0}}">{{cell.nickname}}：</label>
+              <!-- pid -->
+              <label bindtap='TouchZanUser' data-name='{{cell.nickname}}' class='discuss-user' data-hf_nickname="{{cell.hf_nickname}}" wx:else>{{cell.nickname}}回复{{cell.hf_nickname}} ：</label>
+              
+              <label class='content'>{{cell.content}}</label>
+              <label wx:if="{{userId == cell.user_id}}" style="float:right" catchtap="deleteA" data-sid="{{cell.id}}">删除</label>
+            </view>
+            
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 评论按钮弹出框 -->
+<view animation="{{animation}}" class='pop-up-box' style='top:{{popTop}}px;width: {{popWidth}}px;'>
+
+</view>

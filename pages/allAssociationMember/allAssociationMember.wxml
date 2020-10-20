@@ -1,0 +1,16 @@
+<!--pages/allAssociationMember/allAssociationMember.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">俱乐部成员</view></cu-custom>
+<view class="content1">
+<view class="memberList">
+<view class="noContent" wx:if="{{list.length == 0}}">
+          <image src="../../images/no.png" class="no_img"></image>
+          <view class="no_text">暂无数据</view>
+      </view>
+      <view class="url_view" wx:for="{{list}}">
+      <image src="{{item.avatar}}" class="member_img" ></image>
+       <view class="url_text">{{tools.subRecruit(item.username)}}</view>
+      </view>
+        
+      </view>
+</view>

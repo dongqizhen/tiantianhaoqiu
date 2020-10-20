@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "实名认证",
+  "usingComponents": {
+    "singer": "/components/singer/singer"
+  }
+}

@@ -1,0 +1,28 @@
+// 时间戳之间 相减  结束时间的时间戳 - 当前时间的时间戳
+function humandate(time1) {
+  console.log(time1, time2)
+  var time2 = Math.round(getDate().getTime() / 1000)
+  //var time1 = Date.parse(new Date()) / 1000;
+  var s = time1 - time2;
+  if (s < 0) {
+    s = Math.abs(s);
+  }
+  if (s > 31536000) {
+    // return formatDate(time2);
+  } else if (s > 2592000) {
+    return parseInt(s / 2592000) + '月';
+  } else if (s > 86400) {
+    return parseInt(s / 86400) + '天';
+  } else if (s > 3600) {
+    return parseInt(s / 3600) + '小时';
+  } else if (s > 60) {
+    return parseInt(s / 60) + '分钟';
+  } else {
+    return parseInt(s) + '秒';
+  }
+}
+
+// 导出对外暴露的属性
+module.exports = {
+  humandate: humandate
+}

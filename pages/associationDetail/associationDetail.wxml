@@ -1,0 +1,223 @@
+<!--pages/associationDetail/associationDetail.wxml-->
+<wxs src="../../wxs/subutil.wxs" module="tools" />
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">俱乐部详情</view></cu-custom>
+<view class="swiper swiper-box">
+  <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
+    <block wx:for="{{imgUrls}}" wx:key>
+    <swiper-item>
+  <!-- <swiper-item> -->
+      <!-- <image src="{{item}}" class="slide-image"/> -->
+    <!-- </swiper-item> -->
+    <image src="{{item}}" class="slide-image" wx:if='{{item.src == null}}' bindtap='LookBanner'  data-photUrl='{{imgUrls}}' data-idx="{{index}}" mode ="scaleToFill"/>
+    <!-- aspectFit -->
+     <!-- <navigator url="../{{item.image}}"  wx:else>
+      <image src="{{item.url}}" class="slide-image"/>
+      </navigator>  -->
+    </swiper-item>
+  </block>
+</swiper>
+</view>
+<!-- 社群名称 -->
+<view class="top">
+  <view>
+    <view class="top_title">{{channeldetail.name}}</view>
+    <image src="../../images/fenxiang.png" class="share_img" catchtap="share" data-billId="{{channeldetail.id}}"></image>
+  </view>
+  <view style="margin-top:20rpx;display:flex">
+  <view style="flex:1;margin-top:10rpx;">
+    <image src="../../images/huo.png" class="huo"></image>
+    <text class="top_text">声望</text>
+    <text class="top_num">{{channeldetail.score}}</text>
+  </view>
+  <view class="uset_right">    
+    <button class="joinCommunity " bindtap="joinCommunity">{{isJoin}}</button>
+    <!-- <button class="enteringGroup" bindtap="enteringGroup">进入群聊</button> -->
+  </view>
+  </view>
+
+</view>
+<!-- 用户名称 -->
+<view class="userContent">
+  <view class="userOne">
+    <view class="user_left">
+        <image src="{{channeldetail.avatar}}" class="logo"></image>
+        <view class="logo_right">
+          <view class="name">{{channeldetail.nickname}}</view>
+          <text class="status">创建人</text>
+        </view>
+    </view>
+    <view class="">
+      <button class="publishActivity" bindtap="publishActivity" data-channelid="{{channeldetail.id}}" hidden="{{noPub}}">发布活动</button>
+      <!-- <button class="publishActivity" bindtap="publishActivity" data-channelid="{{channeldetail.id}}">发布活动</button> -->
+    </view>
+  </view>
+  <view class="userTwo">
+    <view class='flex' style="display:flex">
+        <view class="flex1">创建日期 {{channeldetail.createtime}}</view>
+        <view class="flex1">俱乐部人数 {{channeldetail.user_num}}人</view>
+    </view>
+    <view class='flex' style="display:flex">
+        <view class="flex1">历史活动 {{channeldetail.a_num}}次</view>
+        <view class="flex1">历史参与人数 {{channeldetail.part_num}}人次</view>
+    </view>
+  </view>
+</view>
+
+<!-- content -->
+<view class="main">
+  <view class="content1">
+    <view class="title" style="padding-bottom:15rpx;">俱乐部简介</view>
+    <view class="describe">
+    <!-- // 0 非实体  1 实体 -->
+     <view wx:if="{{channeldetail.is_club == 1}}">营业时间：{{channeldetail.bus_starttime}}-    {{channeldetail.bus_endtime}}</view>
+     <view >联系电话：{{channeldetail.mobile}}</view>
+     <view wx:if="{{channeldetail.is_club == 0}}">性别限制：<text wx:if="{{channeldetail.gender == 0}}">不限</text><text wx:if="{{channeldetail.gender == 1}}">男</text><text wx:if="{{channeldetail.gender == 2}}">女</text></view>
+     <view wx:if="{{channeldetail.is_club == 1}}" bindtap="activity_adress" style="margin-top:10rpx;"><image src="../../images/site.png" class="site"></image>地址：{{channeldetail.address}}</view>
+     
+      <view style=" padding-top: 20rpx;font-size:28rpx">介绍：{{channeldetail.description}}</view>
+    </view>
+  </view>
+  <view class="content1" wx:if="{{channeldetail.is_club == 1}}">
+    <view class="title">设备设施</view>
+    <view class="flex">
+      <view class="flexOne" wx:for="{{cate}}" wx:key>
+        <image src="{{publicimgUrl}}{{item.image}}" class="img1"></image>
+        <text class="text1">{{item.name}} X {{item.num}}</text>
+      </view>
+      <!-- <view class="flexOne">
+        <image src="../../images/img2.png" class="img2"></image>
+        <text class="text1">斯诺克 X2</text>
+      </view> -->
+    </view>
+    
+  </view>
+  <view class="content1">
+    <view class="title">当前抽奖活动</view>
+    <view class="title_right">
+    <view class="kukyDraw" hidden="{{isKuckyDraw}}">
+      <image src="../../images/jiahao.png" class="add_img"></image>
+      <text class="publish_text" data-channelid="{{channeldetail.id}}" bindtap="publishkKuckyDraw">发布抽奖</text>
+      <text class="line"></text>
+      </view>
+      <navigator url="/pages/kuckyDrawList/kuckyDrawList?channelid={{channeldetail.id}}" hover-class="none" style="float:right">
+      <text class="lookAll" data-channelid="{{channeldetail.id}}">查看全部 > </text>
+      </navigator>
+    </view>
+    <block wx:for="{{pinDaning}}"  wx:key>
+    <view class="list" bindtap="toDetail" data-id="{{item.old.id}}">
+      <view class="name">
+        <text>{{item.old.content}}</text>
+        <image src="../../images/new.png" class="new_img" wx:if="{{item.old.end ==1}}"></image>
+        <image src="../../images/end.png" class="new_img" wx:if="{{item.old.end ==0}}"></image>
+      </view>
+      <view style="display:flex;padding-top:27rpx;clear:both">
+        <view class="time1">{{item.endtime}}</view>
+        <view class="time2">参与人数 <text style="font-weight:bold">{{item.old.bm_num}}/{{item.old.num}}</text></view>
+      </view>
+    </view>
+    </block>
+    
+  </view>
+  <!-- 社群活动 -->
+   <view class="content1">
+     <view class="title">俱乐部活动</view>
+      <navigator url="/pages/allAssociationActivity/allAssociationActivity?id={{id}}" hover-class="none" style="float:right">
+        <view class="title_right" style="float:right">
+          <text class="lookAll">查看全部 > </text>
+        </view>
+        </navigator>
+      <!-- <view class="title_right" style="float:right" bindtap="allAssociationActivity">
+        <text class="lookAll">查看全部 > </text>
+      </view> -->
+      <view class="activityList">
+        <view class="ac_list" wx:for="{{channel.page}}" bindtap="toDetailA" data-id="{{item.id}}" wx:key>
+          <image src="../../images/end.png" class="po_img" wx:if="{{nowDate >= item.endtime}}"></image>
+          <image wx:else src="../../images/new.png" class="po_img"></image>
+          <image src="{{item.image}}" class="photo" mode="scaleToFill"></image>
+          <view style="height:56rpx;">
+            <view class="activityName">{{tools.sub(item.title)}}</view>
+            <view class="activityNumber">{{item.bm_num}}/{{item.num}}人</view>  
+          </view>
+          
+        </view>
+       
+        <!-- <view class="ac_list">
+          <image src="../../images/new.png" class="po_img"></image>
+          <image src="../../images/picture.png" class="photo"></image>
+          <view class="activityName">这里是活动</view>
+          <view class="activityNumber">8/25人</view>
+        </view> -->
+      </view>
+  </view>
+  <!-- 社群成员 -->
+    <view class="content1">
+      <view class="title">俱乐部成员</view>
+      <navigator url="/pages/allAssociationMember/allAssociationMember?id={{id}}" hover-class="none" style="float:right">
+      <view class="title_right" style="float:right">
+        <text class="lookAll">查看全部 > </text>
+      </view>
+      </navigator>
+      <view class="memberList">
+      <view class="url_view"  wx:for="{{channel.user}}" wx:key>
+      <image src="{{item.avatar}}" class="member_img"></image>
+     <view class="url_text">{{tools.subRecruit(item.username)}}</view>
+      </view>
+        
+      </view>
+    </view>
+        <!-- 社群圈 -->
+      <view class="content1">
+        <view class="title">俱乐部圈儿</view>
+        <navigator url="/pages/CircleFriends/CircleFriends?channelid={{id}}" hover-class="none" style="float:right">
+        <view class="title_right" style="float:right">
+          <text class="lookAll" data-channelid="{{channeldetail.id}}">查看全部 > </text>
+        </view>
+        </navigator>
+        <view class="topNews">
+          <view class="new" bindtap="toNews" wx:if="{{channel.new_num !=0}}" data-channelid="{{channeldetail.id}}">
+          <view class="news_view">
+          <image src="{{channel.new_avatar}}" class="news_view_img"></image>
+          <text class="news_text">{{channel.new_num}}条新消息</text>
+          <image src="../../images/next.png" class="next_img"></image>
+          </view>
+          
+          </view>
+          <view class="photo_top" bindtap="publish" data-channelid="{{channeldetail.id}}">
+            <image src="../../images/photo.png" class="photo_img"></image>
+          </view>
+        </view>
+        <view class="communityCircle" wx:for="{{channel.quan}}" wx:key>
+            <image src="{{item.avatar}}" class="communityCircle_logo"></image>
+            <view class="communityCircle_right">
+              <view class="communityName">{{item.nickname}}</view>
+              <view class="communityContent">{{item.content}}</view>
+              <view class="communityList">
+                <block wx:for="{{item.image}}" wx:for-item="cell" wx:key  wx:if="{{item.image.length != 0}}">
+                  <image src="{{cell}}" class="communityList_img" bindtap='LookPhoto'  data-photUrl='{{item.image}}' data-src="{{cell}}"></image>
+                </block>
+               <!-- bindtap='LookPhoto' data-photUrl='{{cell}}' src='{{cell}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px' data-idx="{{index}}" -->
+              </view>
+              <view class="zan">
+                <view class="zan_left">
+                  <image src="../../images/zan.png" wx:if="{{item.is_zan == 0}}"></image>
+                  <image src="../../images/zan1.png" wx:elif="{{item.is_zan == 1}}"></image>
+                  <text>{{item.zan}}</text>
+                </view>
+                <view class="zan_right">
+                  <image src="../../images/pinglun.png"></image>
+                   <text>{{item.comments}}</text>
+                </view>
+              </view>
+            </view>
+        </view>
+      </view>
+      <!--  -->
+      <view class="shopbomb" hidden="{{showModel}}" catchtouchmove="true">
+  <view class="shopmains">
+    <painter palette="{{template}}" bind:imgOK="onImgOK" />
+    <button class="posterbtn" bindtap='download'>保存图片，分享到朋友圈</button> 
+    <image src="../../images/p3.png" class="p3" bindtap="close"></image>
+  </view>
+ 
+</view>
+</view>

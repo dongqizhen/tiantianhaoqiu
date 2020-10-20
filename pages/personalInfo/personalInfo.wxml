@@ -1,0 +1,47 @@
+<!--pages/personal-info/personal-info.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">个人信息</view></cu-custom>
+<view>
+<form bindsubmit="formSubmit" bindreset="formReset">
+  <view class="info-wrapper">
+    <view class="per-info"><text>头像</text>
+      <image src='{{personalInfo.avatar}}' class='logo'></image>
+    </view>
+    <view class="per-info"><text>昵称</text>
+    <input type="text" value='{{nickname}}' bindinput='changeTitle'/></view>
+    <view class="per-info"><text>性别</text>
+    <input type="text" value='{{genderText}}' disabled="disabled"/></view>
+    <view class="per-info">
+      <text>年龄</text>
+      <picker bindchange="bindPickerChange" data-id="{{j}}" value="{{j}}" range="{{schoolList}}" name="teamId">
+        <view class="picker">
+          {{schoolList[j]}}
+        </view>
+      </picker>
+    </view>
+    <view class="per-info"><text>行业</text>
+      <picker bindchange="bindPickerChange2" value="{{pickerIndex}}" range="{{trade}}">
+        <view class="picker">
+          {{trade[pickerIndex]}}
+        </view>
+      </picker>
+    </view>
+    <view class="per-info">
+        <text>电话</text>
+       <input type="number" value='{{personalInfo.mobile}}' bindinput='changePhone'/>
+    </view>
+     <view class="per-info">
+        <text>微信</text>
+       <input type="text" value='{{wxid}}' bindinput='changewxid'/>
+    </view>
+    <view class="per-info"><text>身份</text>
+      <picker bindchange="bindPickerChange3" value="{{index}}" range="{{type}}">
+        <view class="picker">
+          {{type[index]}}
+        </view>
+      </picker>
+    </view>
+  </view>
+ 
+  <button class="logout red" formType="submit"  catchtap="preservebtn">保存</button>
+ </form>
+</view>

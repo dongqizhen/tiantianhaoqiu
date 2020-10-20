@@ -1,0 +1,95 @@
+<!--pages/personal/personal.wxml-->
+<cu-custom bgColor="bg-gradual-blue"><view slot="content">个人中心</view></cu-custom>
+<view class='content'>
+  <view class='content_top' hidden='{{isHidden}}'>
+      <image src='../../images/personal_bg.png' class='head_bg'></image> 
+      <view class='top' catchtap='toPersonal'>
+        <image src='{{personalInfo.avatar}}' class='logo'></image>
+        <view class='top_center'>
+          <view class='name' wx:if="{{personalInfo.username}}">
+          <text>{{personalInfo.username}}</text>
+          <view class="star">
+            <image src="../../images/star.png" class="star_img"></image>
+            <!-- //1   认证  组织者 -->
+            <text class="star_text" wx:if="{{personalInfo.is_pub == 1}}">组织者</text>
+             <text class="star_text" wx:else>个人</text>
+          </view>
+          </view>
+
+          <view class='phone' wx:if="{{personalInfo.mobile}}">
+            <image src='../../images/phone_pe.png' class='phone_img'></image>
+            <text class='phone_num'>{{personalInfo.mobile}}</text>
+          </view>
+
+          <view class="num_view" catchtap="growthValue">
+            <text class="text_one">成长值</text>   <text class="text_one">{{personalInfo.score}}</text>
+            <image src="../../images/yiwenshuoming.png" class="qu_img"></image>
+          </view>
+        </view>
+        <!--  -->
+        <view class='top_right'>
+          <image src='../../images/right_pe.png' class='right_pe'></image>
+        </view>
+      </view>
+  </view>
+  <button class='userInfo' open-type="getUserInfo" bindgetuserinfo="getUserInfo" hidden='{{isHidden2}}'>点击授权</button>
+  <!--  -->
+  <view class='content_center'  style='padding-bottom:{{ isIphoneX ? 68 : 0 }}rpx;'>
+      <view class='list' bindtap='toMyTreatyBall'>
+        <image src='../../images/notice.png' class='notice_img'></image>
+        <text class='notice_text'>我的约球</text>
+        <view class='circle' wx:if="{{message == 1}}"></view>
+      </view>
+   
+      <view class='list'>
+      <!-- color ="#a86bef" -->
+      <switch  checked="{{checked}}"  bindchange="switch1Change" style='float:right;'/>
+        <image src='../../images/fujin2.png' class = "fujin" ></image>
+        <view class='yunxu_text' style=''>允许显示</view>
+        <view class='text_bottom'>允许附近球友看到我的头像和位置</view>
+      </view>
+      <view class='list' bindtap="tomyAssociation">
+        <image src='../../images/my1.png' class='my1'></image>
+        <text class='notice_text'>我的俱乐部</text>
+      </view>
+       <view class='list' bindtap="toMyActivity">
+        <image src='../../images/my2.png' class='my2'></image>
+        <text class='notice_text'>我的活动</text>
+      </view>
+      <view class='list' bindtap="createAssociation">
+        <image src='../../images/my3.png' class='my3'></image>
+        <text class='notice_text'>创建俱乐部</text>
+      </view>
+     
+        <view class='list'>
+         <navigator  url="/pages/myDraw/myDraw">
+        <image src='../../images/jiangpin.png' class="about_img"></image>
+        <text class='notice_text'>我的奖品</text>
+        </navigator>
+      </view>
+      
+      
+      <view class='list' bindtap="systemMessage">
+        <image src='../../images/my4.png' class='my4'></image>
+        <text class='notice_text'>系统消息</text>
+      </view>
+      <view class='list' bindtap='toAboutUs'>
+        <image src='../../images/about.png' class='about_img'></image>
+        <text class='about_text'>关于我们</text>
+      </view>
+      <view class='list' bindtap='tel'>
+        <image src='../../images/kefu.png' class='about_img' style="height:36rpx"></image>
+        <text class='about_text'>联系客服人员</text>
+      </view>
+  <!--  -->
+  </view>
+  <view class="shopbomb" hidden="{{showModel}}">
+  <view class="shopmains">
+    <view style="background:#fff" class="growth">
+    <view class="growth_text">成长值是个人活跃度的反应。每日签到获得2分，参加一次抽奖获得3分，报名一次活动获得5分。个人成长值可累加到关注俱乐部的声望值。成长值在项目三期会有很大的作用哦，所以请踊跃获取吧！</view>
+    </view>
+    <image src="../../images/p3.png" class="p3" bindtap="close"></image>
+  </view>
+ 
+</view>
+</view>

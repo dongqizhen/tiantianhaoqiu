@@ -1,0 +1,108 @@
+//活动
+var sub = function (val) {
+  if (val.length == 0 || val == undefined || val == null) {
+    return;
+  }
+  if (val.length > 5) {
+    return val.substring(0, 5) + "...";
+  } else {
+    return val;
+  }
+}
+//招聘
+var subRecruit = function (val) {
+  if (val.length == 0 || val == undefined || val == null) {
+    return;
+  }
+  if (val.length > 3) {
+    return val.substring(0, 3) + "...";
+  } else {
+    return val;
+  }
+}
+//房产
+var subHouse = function (val) {
+  if (val.length == 0 || val == undefined || val == null) {
+    return;
+  }
+  if (val.length > 3) {
+    return val.substring(0, 3) + "...";
+  } else {
+    return val;
+  }
+}
+var subCar = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if (val.length > 16) {
+    return val.substring(0, 16) + "...";
+  } else {
+    return val;
+  }
+} 
+
+//二手
+var subAssistant = function (val) {
+  if (val.length == 0 || val == undefined) {
+    return;
+  }
+  if (val.length > 9) {
+    return val.substring(0, 9) + "...";
+  } else {
+    return val;
+  }
+}
+
+
+//逢三位转逗号
+var threeNum = {
+  comma : function (num) {
+    var num = (num || 0).toString();
+    var result = '';
+    while (num.length > 3) {
+      result = ',' + num.slice(-3) + result;
+      num = num.slice(0, num.length - 3);
+    }
+    if (num) { result = num + result; }
+    return result;
+  }
+}
+//时间
+var subtime = function (val) {
+  if (val.length == 0 || val == undefined || val == null) {
+    return;
+  }
+  if (val.length > 11) {
+    return val.substring(11, 19) ;
+  } else {
+    return val;
+  }
+}
+//时间
+var subdate = function (val) {
+  if (val.length == 0 || val == undefined || val == null) {
+    return;
+  }
+  if (val.length > 8) {
+    return val.substring(8, 10);
+  } else {
+    return val;
+  }
+}
+
+module.exports = {
+  comma: threeNum.comma//暴露接口调用
+}
+
+
+
+
+module.exports.sub = sub;
+module.exports.subRecruit = subRecruit;
+module.exports.subHouse = subHouse;
+module.exports.subAssistant = subAssistant;
+module.exports.subCar = subCar;
+module.exports.subtime = subtime;
+module.exports.subdate = subdate;
+// module.exports.threeNum.comma = comma;

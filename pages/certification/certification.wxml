@@ -1,0 +1,111 @@
+<!--pages/certification/certification.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">实名认证</view></cu-custom>
+<view  class="con">
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="list">
+      <view class="title">手机号</view>
+      <input type="number" placeholder="请输入手机号" class="form_input" placeholder-style="color:#999;font-size:21rpx;" bindinput='changeMobile' value='{{mobile}}'></input>
+    </view>
+    <!--  -->
+    <view class="list">
+      <view class="title">验证码</view>
+      <input type="number" bindinput='getCodeValue' value='{{code}}' placeholder="请输入验证码"  class="form_input" placeholder-style="color:#999;font-size:21rpx;"></input>
+      <button class="getCode" catchtap='getVerificationCode' disabled="{{disabled}}">{{codename}}</button>
+    </view>
+    <!--  -->
+    <view class="list" style="padding-bottom:15rpx;">
+      <view class="title">请选择</view>
+      <singer id="singer" bind:singerCancel="_singerCancel" bind:singerConfirm="_singerConfirm" singerContent='{{singerContent}}' singer_list="{{singer_list}}" style="margin-left:43rpx;" bind:type="clickType" myoff='{{type}}'>
+  </singer>
+
+  <view style="padding-top:30rpx;">
+  <view hidden="{{idCard}}" >
+  <view class="card" style="margin-right:20rpx;">
+  <image src="{{publicimgUrl}}/images/user1.png" class="cardImg" bindtap="idCard1" wx:if="{{id_pos.length == 0}}"></image>
+  <block wx:for="{{id_pos}}">
+    <view class="delCard" data-src="{{item}}"  data-idx="{{index}}" bindtap="delid_pos">
+      <image src="../../images/deltel.png" class="del_img"></image>
+    </view>
+      <image src="{{item}}"  data-idx="{{index}}" data-list="{{item}}" data-src="{{item}}" class="cardImg"></image>
+    </block>
+  </view>
+    <view class="card">
+    <image src="{{publicimgUrl}}images/user2.png" class="cardImg" bindtap="idCard2"  wx:if="{{id_neg.length == 0}}"></image>
+    <block wx:for="{{id_neg}}">
+    <view class="delCard" data-src="{{item}}"  data-idx="{{index}}" bindtap="delid_neg">
+      <image src="../../images/deltel.png" class="del_img"></image>
+    </view>
+      <image src="{{item}}"  data-idx="{{index}}" data-list="{{item}}" data-src="{{item}}" class="cardImg"></image>
+    </block>
+    </view>
+    
+  </view>
+  <view hidden="{{license}}" class="card">
+    <image src="{{publicimgUrl}}images/company.png" class="cardImg" bindtap="license" wx:if="{{company_img.length == 0}}"></image>
+    <block wx:for="{{company_img}}">
+    <view class="delCard" data-src="{{item}}"  data-idx="{{index}}" bindtap="delLicense">
+      <image src="../../images/deltel.png" class="del_img"></image>
+    </view>
+      <image src="{{item}}"  data-idx="{{index}}" data-list="{{item}}" data-src="{{item}}" class="cardImg"></image>
+    </block>
+  </view>
+  </view>
+    </view>
+    <!--  -->
+    <!-- <view class="list">
+      <view class="title">
+      <image src="../../images/yingyezhizhao.png" class="yingyezhizhao"></image>
+      营业执照OCR
+      <image src="../../images/next(1).png" class="next"></image>
+      </view>
+    </view> -->
+    <!--  -->
+    <view class="list" style="border:none" hidden="{{license}}">
+      <view class="title">球馆照片提交</view>
+      <view class="image_content">
+        <view class='image' wx:for="{{picPaths}}">
+          <image class="moment_img" src="{{item}}"></image>
+          <view class="del" bindtap="delImg" data-src="{{item}}"  data-idx="{{index}}">
+            <image src="../../images/deltel.png" class="del_img"></image>
+          </view>
+
+        </view>
+        <view class='image' style='display:{{hideAdd?"none":"block"}}'>
+          <image bindtap="chooseimage" class="moment_img" src='../../images/add.png'></image>
+          <!-- <view class="publish_img" bindtap="chooseimage">+</view> -->
+        </view>
+      </view>
+    </view>
+    <!--  -->
+    <view class="list" hidden="{{license}}">
+      <view class="title">球馆地址</view>
+      <input type="text" placeholder="请输入球馆地址" class="form_input" placeholder-style="color:#999;font-size:21rpx !important;" bindinput="getAddress"></input>
+    </view>
+    <!--  -->
+  <view class="type" hidden="{{license}}">
+  <view class='form_view'>基础设施</view>
+  <view>
+    <view class="m1">
+      <view class="type_view" wx:for="{{getcategory}}">
+        <view class="type_text">{{item.name}}</view>
+        <input type="number" placeholder="请输入" class="input_num" bindinput="getNum" data-id="{{item.id}}"></input>
+      </view>
+    </view>
+  </view>
+  
+</view>
+    <!--  -->
+    <view class="list">
+      <view class="title">联系人姓名</view>
+      <input type="text" placeholder="请输入联系人姓名" class="form_input" placeholder-style="color:#999;font-size:21rpx;" bindinput="getUserName"></input>
+    </view>
+    <!--  -->
+    <view class="list">
+      <view class="title">联系人电话</view>
+      <input type="number" placeholder="请输入联系人电话" class="form_input" placeholder-style="color:#999;font-size:21rpx;" bindinput="getPhone"></input>
+    </view>
+    <!--  -->
+    <button class="btn" formType="submit" style='margin-bottom:{{ isIphoneX ? 168 : 100 }}rpx' disabled="{{isFalse}}">提交申请</button>
+    <view style="width:100%;height:80rpx"></view>
+  </form>
+</view>

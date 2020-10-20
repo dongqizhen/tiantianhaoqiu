@@ -1,0 +1,33 @@
+<!--pages/myTreatyBall/myTreatyBall.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">我的约球</view></cu-custom>
+<view class='content' style='margin-bottom:{{ isIphoneX ? 88 : 50 }}rpx;'>
+  <view wx:if="{{list.length == 0}}" class="noList">您还没有发布过约球，快去发布吧。</view>
+  <view class='list' wx:for="{{list}}" wx:key="{{list}}" data-id='{{item.id}}' catchtap='toBallDateil'>
+      <view class='date'>发布日期：{{item.createtime}}</view>
+      <view class='title'>{{item.title}}</view>
+      <view class='list_bottom'>
+          <view style='display:inline-block;width:93%;'>
+            <text wx:for="{{item.tagslist}}" wx:key="{{item.tagslist}}">{{item.name}}</text>
+            <text class="fee_type" wx:if="{{item.fee_type == 1}}">AA</text>
+            <text class="fee_type" wx:elif="{{item.fee_type == 2}}">免费</text>
+            <text class="fee_type" wx:elif="{{item.fee_type == 3}}">抢台费</text>
+          </view>
+          <view class='list_right' >
+          <view  catchtap='toBallDateil' data-id='{{item.id}}' style='display:inline-block;width:100rpx;text-align:right'>
+          <image src="../../images/bianji.png" class="bianji_img" ></image>
+          </view>
+          <view catchtap='toMyBallDateil' data-id='{{item.id}}' style='display:inline-block;width:100rpx;text-align:right'>
+          <image src="../../images/message.png" class="message_img" ></image>
+          </view>
+          <!-- count  0 没有  >0有 -->
+             
+              <view class='right_circle' wx:if="{{item.count >0 }}"></view>
+              <view wx:else></view>
+          </view> 
+
+      </view> 
+   </view> 
+
+
+  
+</view>
