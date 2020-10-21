@@ -5,7 +5,6 @@
 
 App({
   onLaunch () {
-
     wx.getSystemInfo({
       success: e => {
         let custom = wx.getMenuButtonBoundingClientRect();

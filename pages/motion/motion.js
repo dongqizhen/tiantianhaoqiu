@@ -14,7 +14,7 @@ Page({
     index:0,//选择器默认下标
     onerod:'',
     titleArray:[
-      '斯诺克147','斯诺克107','中式75','中⼋','九球','追分','抢兔⼦'
+      '斯诺克147','中式107','斯诺克75','中⼋','九球','追分','抢兔⼦'
     ]
   },
   //跳转总得分明细
@@ -93,10 +93,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log(options)
     var that=this;
     this.getData();
       //从外部扫码
-    if(options.scene){
+    if(options && options.scene){
       // wx.setStorageSync('scene', options.scene)
       // console.log('1:',wx.getStorageSync('scene'))
       url = that.route;
@@ -235,7 +236,7 @@ Page({
       title:'加载中...'
     })
     await utils.sendRequest(app.globalData.publicAdress + 'api/sport', 'get', { "userid": wx.getStorageSync('userId'),score:(this.data.index==0?1:this.data.index == 1?3:2) })
-    .then(function (response) {
+    .then( (response)=> {
       console.log(response)
       if (response.statusCode == 200) {
         var all = response.data.all  //总局数
@@ -251,10 +252,10 @@ Page({
           onerod: onerod
         })
       }
-    }, function (error) {
-      console.log(error);
     }).finally(()=>{
-      wx.hideLoading()
+      wx.hideLoading({
+        complete:()=>{}
+      })
     })
   },
 

@@ -6,12 +6,17 @@ page{
 .about_page{
   margin: 0 10px;
 }
+.wrapper{
+  flex:1;
+  overflow: hidden;
+  
+}
 .top{
   position: relative;
-  height:185rpx;
+  /* height:185rpx; */
   display: flex;
   flex-direction: column;
-  margin-top: 26rpx;
+  margin: 26rpx 0;
 }
 .top .selection{
   height: 60rpx;

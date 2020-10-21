@@ -14,6 +14,26 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
+//添加事件结束
+Promise.prototype.finally = function (callback) {
+  var Promise = this.constructor;
+  return this.then(
+      function (value) {
+          Promise.resolve(callback()).then(
+              function () {
+                  return value;
+              }
+          );
+      },
+      function (reason) {
+          Promise.resolve(callback()).then(
+              function () {
+                  throw reason;
+              }
+          );
+      }
+    );
+  }
 
 var sendRequest = function (url, method, data = {}, header = {}) {
   var promise = new Promise(function (resolve, reject) {

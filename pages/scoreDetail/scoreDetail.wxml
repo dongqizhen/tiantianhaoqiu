@@ -3,7 +3,7 @@
 <wxs module="dateUtil" src="../../wxs/formatDate.wxs"></wxs>
 <wxs src="../../wxs/humandate.wxs" module="humandate" />
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">总得分明细</view></cu-custom>
-<view class="wrapper">
+<view class="wrapper" style="height:calc(100% - {{CustomBar}}px)">
 
 
 <view class="top">
@@ -35,10 +35,10 @@
        <image src="../../images/backpage.png"></image>
       </view>
     </picker>
-    <view class="swiper-tab-item {{currentTab==idx?'active':''}}" data-current="{{idx}}" data-ids="{{item}}" bindtap="clickTab" wx:for="{{monthlist}}" wx:for-index="idx" wx:key="idx"  wx:if="{{idx<4}}">{{item}}月</view>
+    <view class="swiper-tab-item {{currentTab==idx?'active':''}}" data-current="{{idx}}" data-ids="{{item}}" bindtap="clickTab" wx:for="{{monthlist}}" wx:for-index="idx" wx:key="idx"  wx:if="{{idx<3}}">{{item}}月</view>
   </view>
 </view>
-
+<view class="content">
   <view wx:if="{{deviceList.length==0}}" class="noContent">
     <image src="../../images/no.png" class="no_img"></image>
     <view class="no_text">暂无数据</view>
@@ -52,8 +52,8 @@
             <text>{{datems}}</text>
           </view>
           <view class="gamestatus" wx:if="{{item.type==1}}"><text style="color:#f12c2c;">练习</text></view>
-          <view class="gamestatus" wx:if="{{item.type==2}}"><text>对局</text></view>
-          <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type==2}}">
+          <view class="gamestatus" wx:if="{{item.type!=1}}"><text>对局</text></view>
+          <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
               <text class="wxname" wx:if="{{userid == item.idb}}">{{item.nicknameA}}</text>
               <text class="wxname" wx:if="{{userid == item.ida}}">{{item.nicknameB}}</text>
@@ -62,7 +62,7 @@
             <image src="{{item.avatarA}}" class="headimg" wx:if="{{userid == item.idb}}"></image>
             <image src="{{item.avatarB}}" class="headimg" wx:if="{{userid == item.ida}}"></image>
           </view>
-          <!-- <view class="rightPersonal" data-id="{{item.idb}}" hidden="{{showModel2}}" wx:if="{{item.type==2}}">
+          <!-- <view class="rightPersonal" data-id="{{item.idb}}" hidden="{{showModel2}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
               <text class="wxname">{{item.nicknameB}}</text>
               <text class="gameperson">对手</text>
@@ -96,7 +96,7 @@
               <text>{{item.onemax}}</text>
             </view>
           </view>
-          <view class="detailB3" wx:if="{{item.type==2}}">
+          <view class="detailB3" wx:if="{{item.type!=1}}">
             <view>
               <view class="viewstatus">
                 <text style="background:#7966FE" wx:if="{{item.win_level>item.all_level - item.win_level}}">胜</text>
@@ -128,8 +128,8 @@
             <text>{{datems}}</text>
           </view>
           <view class="gamestatus" wx:if="{{item.type==1}}"><text>练习</text></view>
-          <view class="gamestatus" wx:if="{{item.type==2}}"><text>对局</text></view>
-          <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type==2}}">
+          <view class="gamestatus" wx:if="{{item.type!=1}}"><text>对局</text></view>
+          <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
               <text class="wxname" wx:if="{{userid == item.idb}}">{{item.nicknameA}}</text>
               <text class="wxname" wx:if="{{userid == item.ida}}">{{item.nicknameB}}</text>
@@ -165,7 +165,7 @@
               <text>{{item.onemax}}</text>
             </view>
           </view>
-          <view class="detailB3" wx:if="{{item.type==2}}">
+          <view class="detailB3" wx:if="{{item.type!=1}}">
             <view>
               <view class="viewstatus">
                 <text style="background:#7966FE" wx:if="{{item.win_level>item.all_level - item.win_level}}">胜</text>
@@ -193,8 +193,8 @@
             <text>{{datems}}</text>
           </view>
           <view class="gamestatus" wx:if="{{item.type==1}}"><text>练习</text></view>
-          <view class="gamestatus" wx:if="{{item.type==2}}"><text>对局</text></view>
-          <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type==2}}">
+          <view class="gamestatus" wx:if="{{iitem.type!=1}}"><text>对局</text></view>
+          <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
               <text class="wxname" wx:if="{{userid == item.idb}}">{{item.nicknameA}}</text>
               <text class="wxname" wx:if="{{userid == item.ida}}">{{item.nicknameB}}</text>
@@ -230,7 +230,7 @@
               <text>{{item.onemax}}</text>
             </view>
           </view>
-          <view class="detailB3" wx:if="{{item.type==2}}">
+          <view class="detailB3" wx:if="{{item.type!=1}}">
             <view>
               <view class="viewstatus">
                 <text style="background:#7966FE" wx:if="{{item.win_level>item.all_level - item.win_level}}">胜</text>
@@ -247,7 +247,9 @@
       <view class="loading" hidden="{{!deviceLoading}}" wx:if="{{deviceList.length!=0}}">正在载入更多...</view>
       <view class="loading" hidden="{{!deviceLoadingComplete}}" wx:if="{{deviceList.length!=0}}">已加载全部</view>
     </scroll-view>
-  </view>  
+  </view>
+</view>
+    
 </view>
 
 

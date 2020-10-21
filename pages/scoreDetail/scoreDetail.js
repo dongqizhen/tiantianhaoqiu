@@ -30,9 +30,10 @@ Page({
     userid: wx.getStorageSync('userId'),
     isIphoneX: false,
     titleArray:[
-      '斯诺克147','斯诺克107','中式75','中⼋','九球','追分','抢兔⼦'
+      '斯诺克147','中式107','斯诺克75','中⼋','九球','追分','抢兔⼦'
     ],
     index:0,
+    isShowLoading:false,
     dateIndex:0,
     date:[
       '2020','2019','2018'
@@ -126,6 +127,10 @@ Page({
   onLoad (options) {
     // wx.startPullDownRefresh()
     var that = this;
+    this.setData({
+      CustomBar: app.globalData.CustomBar,
+      StatusBar:app.globalData.navTop
+    })
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
 
@@ -133,13 +138,13 @@ Page({
       index:options.index
     })
     
-    var pages = getCurrentPages();//获取页面栈
-    if (pages.length > 1) {
-      //上一个页面实例对象
-      var prePage = pages[pages.length - 2];
-      //调用上一个页面的onShow方法
-      prePage.onShow()
-    }
+    // var pages = getCurrentPages();//获取页面栈
+    // if (pages.length > 1) {
+    //   //上一个页面实例对象
+    //   var prePage = pages[pages.length - 2];
+    //   //调用上一个页面的onShow方法
+    //   prePage.onShow()
+    // }
     //获取年份  
     var Ys =date.getFullYear();
     //获取月份  
@@ -175,11 +180,11 @@ Page({
         months:Ms,
         nextmonth:nextmonth
       })
-      wx.showToast({
-        title: '加载中...',
-        mask: true,
-        icon: 'loading'
-      })
+      // wx.showToast({
+      //   title: '加载中...',
+      //   mask: true,
+      //   icon: 'loading'
+      // })
       that.singList()
       that.setData({
         "isIphoneX": this.isIphoneX(),
@@ -200,7 +205,7 @@ Page({
     this.setData({
       deviceList: []
     })
-
+   
     wx.showLoading({
       title: '加载中...',
     })
@@ -312,10 +317,12 @@ Page({
         that.setData({
           deviceList: that.data.deviceList.concat(timelist),
         })
-      }, function (error) {
-        console.log(error);
       }).finally(()=>{
-        wx.hideLoading()
+        
+          wx.hideLoading({
+            complete:()=>{}
+          })
+        
       })
   },
 
