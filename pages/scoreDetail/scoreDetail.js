@@ -69,7 +69,10 @@ Page({
     console.log(e)
     if(e.detail.value <= 2){
       this.setData({
-        index: e.detail.value
+        index: e.detail.value,
+        pageNum: 1,
+        deviceLoading: true, 
+        deviceLoadingComplete: false
       })
       this.singList()
     }
@@ -202,10 +205,16 @@ Page({
   //对局列表
   singList(){
     var that=this;
-    this.setData({
-      deviceList: []
-    })
-   
+
+    console.log("this.userid:::", this.data.userid)
+
+    //如果请求的是第一页数据，将原来的数据清空
+    if (that.data.pageNum == 1){
+      this.setData({
+        deviceList: []
+      })
+    }
+    
     wx.showLoading({
       title: '加载中...',
     })
@@ -431,6 +440,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
+    // console.log("下拉刷新")
     this.setData({
       pageNum: 1,
       deviceList: [],
@@ -441,16 +451,30 @@ Page({
   },
 
   /**
-   * 页面上拉触底事件的处理函数
+   * 页面上拉触底事件的处理函数(原来的代码，压根就没有触发上拉加载)
    */
   onReachBottom: function () {
-    
+    // console.log(111111111111)
+    // let that = this;
+    // if (!that.data.deviceLoadingComplete) {
+    //   var currentPageNo = that.data.pageNum;
+    //   that.setData({
+    //     pageNum: currentPageNo + 1,
+    //   })
+      // that.singList();
+    // }
+  },
+
+  scrollToLower: function (e) {
+    console.log(111111111111, this.data.deviceLoadingComplete)
     let that = this;
     if (!that.data.deviceLoadingComplete) {
       var currentPageNo = that.data.pageNum;
       that.setData({
         pageNum: currentPageNo + 1,
       })
+      console.log(that.data.deviceList)
+
       that.singList();
     }
   },

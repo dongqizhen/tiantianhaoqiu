@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.js": "javascriptreact",
+        "*.jsx": "javascriptreact",
+        "*.html": "html",
+        "*.wxml": "html",
+        "*.wxss": "css",
+        "*.cjson": "jsonc",
+        "*.wxs": "javascript"
+    }
+}

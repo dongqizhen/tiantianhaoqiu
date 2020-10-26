@@ -8,12 +8,12 @@ App({
     wx.getSystemInfo({
       success: e => {
         let custom = wx.getMenuButtonBoundingClientRect();
-        
+
         let statusBarHeight = e.statusBarHeight,
         navTop = custom.top,//胶囊按钮与顶部的距离
         gapHeight= navTop - statusBarHeight, //间距
         navHeight = statusBarHeight + custom.height + (custom.top - statusBarHeight)*2;//导航高度
-        
+
         this.globalData.navTop = navTop;
         this.globalData.StatusBar = e.statusBarHeight;
         this.globalData.gapHeight = gapHeight;
@@ -57,7 +57,7 @@ App({
                 })
               }
             }
-           
+
           },
           fail: function (res) {
             console.log("失败");
@@ -132,8 +132,8 @@ App({
      })
 
   },
- 
-  globalData: {  
+
+  globalData: {
     userInfo: null,
     // publicAdress:"http://tq-test.wooloo.top/",
     publicAdress:"https://tq.wooloo.top/",

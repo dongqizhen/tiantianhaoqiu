@@ -1,336 +1,336 @@
 {
-  "description": "项目配置文件",
-  "packOptions": {
-    "ignore": []
-  },
-  "setting": {
-    "urlCheck": false,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
-    "preloadBackgroundData": false,
-    "minified": true,
-    "newFeature": true,
-    "coverView": true,
-    "nodeModules": true,
-    "autoAudits": false,
-    "showShadowRootInWxmlPanel": true,
-    "scopeDataCheck": false,
-    "uglifyFileName": false,
-    "checkInvalidKey": true,
-    "checkSiteMap": true,
-    "uploadWithSourceMap": true,
-    "compileHotReLoad": false,
-    "useMultiFrameRuntime": false,
-    "useApiHook": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "enableEngineNative": false
-  },
-  "compileType": "miniprogram",
-  "libVersion": "2.8.3",
-  "appid": "wx67629b26aca9707b",
-  "projectname": "%E5%8F%B0%E7%90%83-0729",
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "isGameTourist": false,
-  "simulatorType": "wechat",
-  "simulatorPluginLibVersion": {},
-  "scripts": {
-    "beforeCompile": "sass-to-wxss"
-  },
-  "condition": {
-    "search": {
-      "current": -1,
-      "list": []
-    },
-    "conversation": {
-      "current": -1,
-      "list": []
-    },
-    "plugin": {
-      "current": -1,
-      "list": []
-    },
-    "game": {
-      "currentL": -1,
-      "list": []
-    },
-    "gamePlugin": {
-      "current": -1,
-      "list": []
-    },
-    "miniprogram": {
-      "current": 26,
-      "list": [
-        {
-          "id": -1,
-          "name": "发布约球",
-          "pathName": "pages/publishBall/publishBall",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "约球详情",
-          "pathName": "pages/ballDetail/ballDetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "个人中心",
-          "pathName": "pages/personal/personal",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "个人信息",
-          "pathName": "pages/personalInfo/personalInfo",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的约球",
-          "pathName": "pages/myTreatyBall/myTreatyBall",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 5,
-          "name": "关于我们",
-          "pathName": "pages/aboutUs/aboutUs",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "注册",
-          "pathName": "pages/register/register",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "map",
-          "pathName": "pages/map/map",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "俱乐部详情",
-          "pathName": "pages/associationDetail/associationDetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "logoa",
-          "pathName": "pages/logs/logs",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "活动",
-          "pathName": "pages/activityList/activityList",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "活动详情",
-          "pathName": "pages/activityDetail/activityDetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "俱乐部",
-          "pathName": "pages/association/association",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "抽奖列表",
-          "pathName": "pages/kuckyDrawList/kuckyDrawList",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "抽奖详情",
-          "pathName": "pages/kuckyDrawDetail/kuckyDrawDetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "发布抽奖",
-          "pathName": "pages/publishkKuckyDraw/publishkKuckyDraw",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "俱乐部活动列表",
-          "pathName": "pages/associationActivityList/associationActivityList",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "编辑俱乐部活动",
-          "pathName": "pages/editAssociationActivity/editAssociationActivity",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "我的俱乐部",
-          "pathName": "pages/myAssociation/myAssociation",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "创建俱乐部",
-          "pathName": "pages/createAssociation/createAssociation",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "实名认证",
-          "pathName": "pages/certification/certification",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 21,
-          "name": "我的活动",
-          "pathName": "pages/myActivityList/myActivityList",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "系统消息",
-          "pathName": "pages/systemMessage/systemMessage",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 23,
-          "name": "新消息",
-          "pathName": "pages/news/news",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "更多",
-          "pathName": "pages/CircleFriends/CircleFriends",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": 25,
-          "name": "pages/index/index",
-          "pathName": "pages/index/index",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "聊天",
-          "pathName": "pages/chat/chat",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "发布抽奖",
-          "pathName": "pages/publishkKuckyDraw/publishkKuckyDraw",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "创建活动",
-          "pathName": "pages/createAssociation/createAssociation",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/createAssociationActivity/createAssociationActivity",
-          "pathName": "pages/createAssociationActivity/createAssociationActivity",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "pages/publish/publish",
-          "pathName": "pages/publish/publish",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "运动",
-          "pathName": "pages/motion/motion",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "总得分明细",
-          "pathName": "pages/scoreDetail/scoreDetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "对局得分明细",
-          "pathName": "pages/playDetail/playDetail",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "单局最高",
-          "pathName": "pages/maxgame/maxgame",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "单杆最高",
-          "pathName": "pages/maxrod/maxrod",
-          "query": "",
-          "scene": null
-        },
-        {
-          "id": -1,
-          "name": "对局详情2",
-          "pathName": "pages/DJdetail/DJdetail",
-          "scene": null
-        }
-      ]
-    }
-  }
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"enhance": true,
+		"postcss": true,
+		"preloadBackgroundData": false,
+		"minified": true,
+		"newFeature": true,
+		"coverView": true,
+		"nodeModules": true,
+		"autoAudits": false,
+		"showShadowRootInWxmlPanel": true,
+		"scopeDataCheck": false,
+		"uglifyFileName": false,
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"compileHotReLoad": false,
+		"useMultiFrameRuntime": false,
+		"useApiHook": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
+		"packNpmManually": false,
+		"packNpmRelationList": [],
+		"enableEngineNative": false
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.8.3",
+	"appid": "wx67629b26aca9707b",
+	"projectname": "%E5%8F%B0%E7%90%83-0729",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"scripts": {
+		"beforeCompile": "sass-to-wxss"
+	},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"gamePlugin": {
+			"current": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 26,
+			"list": [
+				{
+					"id": -1,
+					"name": "发布约球",
+					"pathName": "pages/publishBall/publishBall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "约球详情",
+					"pathName": "pages/ballDetail/ballDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/personal/personal",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "个人信息",
+					"pathName": "pages/personalInfo/personalInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的约球",
+					"pathName": "pages/myTreatyBall/myTreatyBall",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 5,
+					"name": "关于我们",
+					"pathName": "pages/aboutUs/aboutUs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "注册",
+					"pathName": "pages/register/register",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "map",
+					"pathName": "pages/map/map",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "俱乐部详情",
+					"pathName": "pages/associationDetail/associationDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "logoa",
+					"pathName": "pages/logs/logs",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动",
+					"pathName": "pages/activityList/activityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "活动详情",
+					"pathName": "pages/activityDetail/activityDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "俱乐部",
+					"pathName": "pages/association/association",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抽奖列表",
+					"pathName": "pages/kuckyDrawList/kuckyDrawList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "抽奖详情",
+					"pathName": "pages/kuckyDrawDetail/kuckyDrawDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布抽奖",
+					"pathName": "pages/publishkKuckyDraw/publishkKuckyDraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "俱乐部活动列表",
+					"pathName": "pages/associationActivityList/associationActivityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "编辑俱乐部活动",
+					"pathName": "pages/editAssociationActivity/editAssociationActivity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "我的俱乐部",
+					"pathName": "pages/myAssociation/myAssociation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建俱乐部",
+					"pathName": "pages/createAssociation/createAssociation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "实名认证",
+					"pathName": "pages/certification/certification",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 21,
+					"name": "我的活动",
+					"pathName": "pages/myActivityList/myActivityList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "系统消息",
+					"pathName": "pages/systemMessage/systemMessage",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 23,
+					"name": "新消息",
+					"pathName": "pages/news/news",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "更多",
+					"pathName": "pages/CircleFriends/CircleFriends",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "pages/index/index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "聊天",
+					"pathName": "pages/chat/chat",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "发布抽奖",
+					"pathName": "pages/publishkKuckyDraw/publishkKuckyDraw",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "创建活动",
+					"pathName": "pages/createAssociation/createAssociation",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/createAssociationActivity/createAssociationActivity",
+					"pathName": "pages/createAssociationActivity/createAssociationActivity",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/publish/publish",
+					"pathName": "pages/publish/publish",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "运动",
+					"pathName": "pages/motion/motion",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "总得分明细",
+					"pathName": "pages/scoreDetail/scoreDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "对局得分明细",
+					"pathName": "pages/playDetail/playDetail",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "单局最高",
+					"pathName": "pages/maxgame/maxgame",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "单杆最高",
+					"pathName": "pages/maxrod/maxrod",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "对局详情2",
+					"pathName": "pages/DJdetail/DJdetail",
+					"scene": null
+				}
+			]
+		}
+	}
 }

@@ -38,13 +38,16 @@
     <view class="swiper-tab-item {{currentTab==idx?'active':''}}" data-current="{{idx}}" data-ids="{{item}}" bindtap="clickTab" wx:for="{{monthlist}}" wx:for-index="idx" wx:key="idx"  wx:if="{{idx<3}}">{{item}}月</view>
   </view>
 </view>
+
+
 <view class="content">
   <view wx:if="{{deviceList.length==0}}" class="noContent">
     <image src="../../images/no.png" class="no_img"></image>
     <view class="no_text">暂无数据</view>
   </view>
-  <view class = "{{currentTab == 0 ? 'show':'hidden'}}" style='margin-bottom:{{ isIphoneX ? 68 : 34 }}rpx;'>
-    <scroll-view>
+
+  <view wx:if="{{deviceList.length!=0}}" class = "{{currentTab == 0 ? 'show':'hidden'}}" style='margin-bottom:{{ deviceList.length>3?( isIphoneX ? 68 : 34):0  }}rpx;'>
+    <scroll-view scroll-y="true"  bindscrolltolower="scrollToLower">
       <view class="playgame" wx:for="{{deviceList}}" wx:for-item="item" wx:key="index">
         <view class="detailtop">
           <view class="date">
@@ -55,12 +58,15 @@
           <view class="gamestatus" wx:if="{{item.type!=1}}"><text>对局</text></view>
           <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
-              <text class="wxname" wx:if="{{userid == item.idb}}">{{item.nicknameA}}</text>
-              <text class="wxname" wx:if="{{userid == item.ida}}">{{item.nicknameB}}</text>
-              <text class="gameperson">对手</text>
+                <text class="wxname">
+                   {{userid == item.idb?item.nicknameA:item.nicknameB}}
+                </text>
+                <text class="gameperson">对手</text>
             </view>
-            <image src="{{item.avatarA}}" class="headimg" wx:if="{{userid == item.idb}}"></image>
-            <image src="{{item.avatarB}}" class="headimg" wx:if="{{userid == item.ida}}"></image>
+
+            <image src="{{userid == item.idb?item.avatarA:item.avatarB}}"                              class="headimg">
+            </image>
+
           </view>
           <!-- <view class="rightPersonal" data-id="{{item.idb}}" hidden="{{showModel2}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
@@ -119,8 +125,8 @@
       <view>暂无对局或练习</view>
     </scroll-view>
   </view> -->
-  <view class = "{{currentTab == 1 ? 'show':'hidden'}}">
-    <scroll-view>
+  <view wx:if="{{deviceList.length!=0}}" class = "{{currentTab == 1 ? 'show':'hidden'}}" style='margin-bottom:{{deviceList.length>3?( isIphoneX ? 68 : 34):0 }}rpx;'>
+    <scroll-view scroll-y="true"  bindscrolltolower="scrollToLower">
       <view class="playgame" wx:for="{{deviceList}}" wx:for-item="item" wx:key="index">
         <view class="detailtop">
           <view class="date">
@@ -131,12 +137,14 @@
           <view class="gamestatus" wx:if="{{item.type!=1}}"><text>对局</text></view>
           <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
-              <text class="wxname" wx:if="{{userid == item.idb}}">{{item.nicknameA}}</text>
-              <text class="wxname" wx:if="{{userid == item.ida}}">{{item.nicknameB}}</text>
-              <text class="gameperson">对手</text>
+                <text class="wxname">
+                   {{userid == item.idb?item.nicknameA:item.nicknameB}}
+                </text>
+                <text class="gameperson">对手</text>
             </view>
-            <image src="{{item.avatarA}}" class="headimg" wx:if="{{userid == item.idb}}"></image>
-            <image src="{{item.avatarB}}" class="headimg" wx:if="{{userid == item.ida}}"></image>
+
+            <image src="{{userid == item.idb?item.avatarA:item.avatarB}}"                              class="headimg">
+            </image>
           </view>
           
         </view>
@@ -184,8 +192,8 @@
     </scroll-view>
   </view>
 
-  <view class = "{{currentTab == 2 ? 'show':'hidden'}}">
-    <scroll-view>
+  <view wx:if="{{deviceList.length!=0}}" class = "{{currentTab == 2 ? 'show':'hidden'}}" style='margin-bottom:{{ deviceList.length>3?( isIphoneX ? 68 : 34):0  }}rpx;'>
+    <scroll-view scroll-y="true"  bindscrolltolower="scrollToLower">
       <view class="playgame" wx:for="{{deviceList}}" wx:for-item="item" wx:key="index">
         <view class="detailtop">
           <view class="date">
@@ -195,13 +203,15 @@
           <view class="gamestatus" wx:if="{{item.type==1}}"><text>练习</text></view>
           <view class="gamestatus" wx:if="{{iitem.type!=1}}"><text>对局</text></view>
           <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
-            <view class="wxinfo">
-              <text class="wxname" wx:if="{{userid == item.idb}}">{{item.nicknameA}}</text>
-              <text class="wxname" wx:if="{{userid == item.ida}}">{{item.nicknameB}}</text>
-              <text class="gameperson">对手</text>
+          <view class="wxinfo">
+                <text class="wxname">
+                   {{userid == item.idb?item.nicknameA:item.nicknameB}}
+                </text>
+                <text class="gameperson">对手</text>
             </view>
-            <image src="{{item.avatarA}}" class="headimg" wx:if="{{userid == item.idb}}"></image>
-            <image src="{{item.avatarB}}" class="headimg" wx:if="{{userid == item.ida}}"></image>
+
+            <image src="{{userid == item.idb?item.avatarA:item.avatarB}}"                        class="headimg"></image>
+
           </view>
           
         </view>

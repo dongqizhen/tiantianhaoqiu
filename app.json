@@ -57,7 +57,8 @@
     "navigationBarTitleText": "台球吧",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
-    "navigationStyle": "custom"
+    "navigationStyle": "custom",
+    "onReachBottomDistance":50
   },
   "usingComponents": {
     "cu-custom": "/pages/navbar/navbar",
