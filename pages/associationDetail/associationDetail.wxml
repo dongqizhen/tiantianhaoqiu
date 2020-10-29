@@ -3,7 +3,7 @@
 <cu-custom bgColor="bg-gradual-blue" isCustom="{{true}}"><view slot="content">俱乐部详情</view></cu-custom>
 <view class="swiper swiper-box">
   <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="{{circular}}">
-    <block wx:for="{{imgUrls}}" wx:key>
+    <block wx:for="{{imgUrls}}" wx:key="index">
     <swiper-item>
   <!-- <swiper-item> -->
       <!-- <image src="{{item}}" class="slide-image"/> -->
@@ -80,7 +80,7 @@
   <view class="content1" wx:if="{{channeldetail.is_club == 1}}">
     <view class="title">设备设施</view>
     <view class="flex">
-      <view class="flexOne" wx:for="{{cate}}" wx:key>
+      <view class="flexOne" wx:for="{{cate}}" wx:key="index">
         <image src="{{publicimgUrl}}{{item.image}}" class="img1"></image>
         <text class="text1">{{item.name}} X {{item.num}}</text>
       </view>
@@ -103,7 +103,7 @@
       <text class="lookAll" data-channelid="{{channeldetail.id}}">查看全部 > </text>
       </navigator>
     </view>
-    <block wx:for="{{pinDaning}}"  wx:key>
+    <block wx:for="{{pinDaning}}"  wx:key="index">
     <view class="list" bindtap="toDetail" data-id="{{item.old.id}}">
       <view class="name">
         <text>{{item.old.content}}</text>
@@ -130,7 +130,7 @@
         <text class="lookAll">查看全部 > </text>
       </view> -->
       <view class="activityList">
-        <view class="ac_list" wx:for="{{channel.page}}" bindtap="toDetailA" data-id="{{item.id}}" wx:key>
+        <view class="ac_list" wx:for="{{channel.page}}" bindtap="toDetailA" data-id="{{item.id}}" wx:key="index">
           <image src="../../images/end.png" class="po_img" wx:if="{{nowDate >= item.endtime}}"></image>
           <image wx:else src="../../images/new.png" class="po_img"></image>
           <image src="{{item.image}}" class="photo" mode="scaleToFill"></image>
@@ -158,7 +158,7 @@
       </view>
       </navigator>
       <view class="memberList">
-      <view class="url_view"  wx:for="{{channel.user}}" wx:key>
+      <view class="url_view"  wx:for="{{channel.user}}" wx:key="index">
       <image src="{{item.avatar}}" class="member_img"></image>
      <view class="url_text">{{tools.subRecruit(item.username)}}</view>
       </view>
@@ -186,13 +186,13 @@
             <image src="../../images/photo.png" class="photo_img"></image>
           </view>
         </view>
-        <view class="communityCircle" wx:for="{{channel.quan}}" wx:key>
+        <view class="communityCircle" wx:for="{{channel.quan}}" wx:key="index">
             <image src="{{item.avatar}}" class="communityCircle_logo"></image>
             <view class="communityCircle_right">
               <view class="communityName">{{item.nickname}}</view>
               <view class="communityContent">{{item.content}}</view>
               <view class="communityList">
-                <block wx:for="{{item.image}}" wx:for-item="cell" wx:key  wx:if="{{item.image.length != 0}}">
+                <block wx:for="{{item.image}}" wx:for-item="cell" wx:key="index"  wx:if="{{item.image.length != 0}}">
                   <image src="{{cell}}" class="communityList_img" bindtap='LookPhoto'  data-photUrl='{{item.image}}' data-src="{{cell}}"></image>
                 </block>
                <!-- bindtap='LookPhoto' data-photUrl='{{cell}}' src='{{cell}}' style='width:{{photoWidth}}px;height:{{photoWidth}}px' data-idx="{{index}}" -->

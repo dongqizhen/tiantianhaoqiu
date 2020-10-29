@@ -64,6 +64,8 @@ Page({
     // nickname: "",//发布人名称
     // mobile: "",//手机号
     // wxid: "",//微信号
+    canvasWidth:0,
+    canvasHeight:0,
     img_url: [],
     picPaths:[],
     channelid:"",

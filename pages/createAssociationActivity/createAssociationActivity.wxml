@@ -25,7 +25,7 @@
   <view class="pubballinfo">
   <view class='form_view'>开始日期<text class='must_text'>*</text></view>
   
-  <picker mode="date" value="{{date}}" class='form_input'  start="{{date}}" end="2019-12-30" bindchange="bindDateChange" placeholder-class="placeholderStyle">
+  <picker mode="date" value="{{date}}" class='form_input'  bindchange="bindDateChange" placeholder-class="placeholderStyle">
     <view class="picker">
       {{date}}
     </view>
