@@ -138,12 +138,12 @@
           <view class="rightPersonal" data-id="{{item.ida}}" wx:if="{{item.type!=1}}">
             <view class="wxinfo">
                 <text class="wxname">
-                   {{userid == item.idb?item.nicknameA:item.nicknameB}}
+                   {{userid == item.ida?item.nicknameB:item.nicknameA}}
                 </text>
                 <text class="gameperson">对手</text>
             </view>
 
-            <image src="{{userid == item.idb?item.avatarA:item.avatarB}}"                              class="headimg">
+            <image src="{{userid == item.ida?item.avatarB:item.avatarA}}"                              class="headimg">
             </image>
           </view>
           

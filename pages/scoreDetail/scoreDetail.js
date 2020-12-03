@@ -129,10 +129,12 @@ Page({
    */
   onLoad (options) {
     // wx.startPullDownRefresh()
+    console.log(wx.getStorageSync('userId'))
     var that = this;
     this.setData({
       CustomBar: app.globalData.CustomBar,
-      StatusBar:app.globalData.navTop
+      StatusBar:app.globalData.navTop,
+      userid:wx.getStorageSync('userId')
     })
     var timestamp = Date.parse(new Date());
     var date = new Date(timestamp);
@@ -221,12 +223,21 @@ Page({
 
     let pageNum = that.data.pageNum, //第几页
       callbackCount = that.data.callbackCount; //返回数据个数
-    utils.sendRequest(app.globalData.publicAdress + 'api/myRoom', 'get', { "userid": wx.getStorageSync('userId'), 'start_date': that.data.years + '-' + that.data.months + '-01', 'end_date': that.data.years + '-' + that.data.nextmonth + '-01', 'take': callbackCount, 'page': pageNum,type:(this.data.index==1?4:this.data.index==2?3:'')})
+      console.log(that.data.months)
+      let newY,endDate;
+      if(that.data.months == 12){
+        newY = that.data.years+1
+        endDate = newY + `-01-01` 
+      }else{
+        endDate = that.data.years + '-' + that.data.nextmonth + '-01'
+      }
+
+    utils.sendRequest(app.globalData.publicAdress + 'api/myRoom', 'get', { "userid": wx.getStorageSync('userId'), 'start_date': that.data.years + '-' + that.data.months + '-01', 'end_date': endDate, 'take': callbackCount, 'page': pageNum,type:(this.data.index==1?4:this.data.index==2?3:'')})
       .then(function (response) {
         console.log(response)
         that.setData({
           roomList:response.data,
-          userid: that.data.userid
+          // userid: that.data.userid
         })
         timelist=[]
         for(var i=0;i<response.data.length;i++){
@@ -326,6 +337,7 @@ Page({
         that.setData({
           deviceList: that.data.deviceList.concat(timelist),
         })
+        
       }).finally(()=>{
         
           wx.hideLoading({
